@@ -17,3 +17,4 @@ Dieses Projekt entstand durch den fehlenden Markt an hochwertige Software, welch
 
 === Projektziele
 Mit unserer Software hoffen wir, den Leuten zu einem ruhigeren Alltag zu verhelfen, da die Meditation oftmals der beste Weg dazu ist.
+
