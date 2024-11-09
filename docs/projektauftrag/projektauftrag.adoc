@@ -1,0 +1,19 @@
+= Meditate Easy
+Larndorfer Lukas, Harrucksteiner Jan, Vrhovac David
+2024-11-09
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+== Projektauftrag
+=== Allgemeines
+Das Projekt "*MeditateEasy*" wird in Auftrag gegeben von David Vrhovac, Jan Harrucksteiner und Lukas Larndorfer.
+
+=== Entstehung
+Dieses Projekt entstand durch den fehlenden Markt an hochwertige Software, welche einfache Meditation erlaubt.
+
+=== Projektziele
+Mit unserer Software hoffen wir, den Leuten zu einem ruhigeren Alltag zu verhelfen, da die Meditation oftmals der beste weg dazu ist.
