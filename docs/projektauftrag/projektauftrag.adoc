@@ -16,4 +16,4 @@ Das Projekt "*MeditateEasy*" wird in Auftrag gegeben von David Vrhovac, Jan Harr
 Dieses Projekt entstand durch den fehlenden Markt an hochwertige Software, welche einfache Meditation erlaubt.
 
 === Projektziele
-Mit unserer Software hoffen wir, den Leuten zu einem ruhigeren Alltag zu verhelfen, da die Meditation oftmals der beste weg dazu ist.
+Mit unserer Software hoffen wir, den Leuten zu einem ruhigeren Alltag zu verhelfen, da die Meditation oftmals der beste Weg dazu ist.
