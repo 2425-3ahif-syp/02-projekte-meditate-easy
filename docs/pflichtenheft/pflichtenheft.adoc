@@ -1,6 +1,6 @@
 = Meditate Easy
 Larndorfer Lukas, Harrucksteiner Jan, Vrhovac David
-2024-11-09
+{docdate}
 ifndef::imagesdir[:imagesdir: images]
 //:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
 :sourcedir: ../src/main/java
@@ -14,10 +14,10 @@ ifndef::imagesdir[:imagesdir: images]
 == Pflichtenheft "Was mache ich"
 
 === Ausgangssituation
+Immer mehr Menschen haben wegen Schule, Arbeit und Alltag viel Stress und versuchen deswegen zu meditieren um sich zu entspannen, aber es ist schwer eine gute App dafür zu finden. Deshalb wäre es sinnvoll eine einfache App zu entwickeln die gut erklärt wie Meditation funktioniert und viele verschiedene Übungen für Anfänger und auch für Fortgeschrittene anbietet.
 
 === Istzustand
-Es gibt viele Meditationsapps auf dem Markt, aber diese Apps haben selten genaue Anleitungen für verschiedene Übungen und sind nicht sehr benutzerfreundlich.
-Einige benötigen eine Internetverbindung um die Meditationsübungen durchzuführen oder sind oft auch kostenpflichtig.
+Es gibt viele Meditationsapps auf dem Markt, aber diese Apps haben selten genaue Anleitungen für verschiedene Übungen und sind nicht sehr benutzerfreundlich. Die meisten bieten oft nur allgemeine Übungen, die sich nicht gut anpassen lassen (z.B. Dauer der Übung, Wiederholungen der Übung,...). Für viele Apps braucht man auch ständig eine Internetverbindung was sie unpraktisch macht wenn man unterwegs ist oder keine Internetverbindung hat.
 
 === Problemstellung
 
