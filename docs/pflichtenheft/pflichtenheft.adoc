@@ -20,14 +20,29 @@ Immer mehr Menschen haben wegen Schule, Arbeit und Alltag viel Stress und versuc
 Es gibt viele Meditationsapps auf dem Markt, aber diese Apps haben selten genaue Anleitungen für verschiedene Übungen und sind nicht sehr benutzerfreundlich. Die meisten bieten oft nur allgemeine Übungen, die sich nicht gut anpassen lassen (z.B. Dauer der Übung, Wiederholungen der Übung,...). Für viele Apps braucht man auch ständig eine Internetverbindung was sie unpraktisch macht wenn man unterwegs ist oder keine Internetverbindung hat.
 
 === Problemstellung
+Es besteht eine wachsende Nachfrage nach Meditations-Apps, die auf verschiedene Bedürfnisse eingehen können. Die bestehenden Apps bieten jedoch oft nur eingeschränkte Anpassungsmöglichkeiten und sind teilweise komplex in der Bedienung. Dies erschwert es vielen Menschen, passende Angebote für den Stressabbau und für Konzentrationssteigerungen zu finden.
 
 === Aufgabenstellung
+Die Aufgabe besteht darin, eine benutzerfreundliche App zu entwickeln, die sowohl für Anfänger als auch für Fortgeschrittene geeignete Anleitungen und Übungen bereitstellt. Die App soll verschiedene Meditationsarten und Anpassungsoptionen für Dauer und Wiederholungen bieten.
 
 ==== Funktionale Anforderungen
+- Meditationsübungen: Bereitstellung von verschiedenen Übungen für Anfänger und Fortgeschrittene
+- Timer: Timer zur Festlegung der Meditationsdauer
+- Anpassbarkeit: Möglichkeit, die Dauer und Häufigkeit der Übungen anzupassen
+- Datenschutz: Keine ungewollte Datenübertragung; alle Funktionen müssen sicher und zuverlässig sein
 
 ==== Nichtfunktionale Anforderungen (NFA)
+- Benutzerfreundlichkeit: Einfache Bedienung und ansprechendes Design
+- Zuverlässigkeit: Stabiler Betrieb ohne Abstürze
+- Effizienz: Schnelle Ladezeiten und niedriger Ressourcenverbrauch
+- Wartbarkeit: Einfache Anpassung und Fehlerbehebung
 
 === Ziele
+- Bereitstellung einer benutzerfreundlichen Meditations-App
+- Effizienter und stabiler Betrieb auf verschiedenen Geräten
+- Abschluss des Projekts innerhalb des Schuljahres
+- Kostengünstige Umsetzung und Einhaltung des Budgets
+- Regelmäßige Tests zur Sicherstellung einer hohen Qualität
 
 === Mengengerüst
 - Datenbewegungen: Übertragung von Meditationsanleitungen und -übungen
