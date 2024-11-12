@@ -33,7 +33,6 @@ Erstellung einer minimalistisch gestalteten App mit Basis-Funktionen wie geführ
 - Testphase abgeschlossen (KW 6/2025).
 
 === Freigaben
-- Freigabe des Designs durch alle Auftraggeber (KW 49/2024).
 - Freigabe der finalen Version nach Beta-Test (KW 7/2025).
 
 === Projektstart
