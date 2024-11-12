@@ -1,6 +1,6 @@
 = Meditate Easy
 Larndorfer Lukas, Harrucksteiner Jan, Vrhovac David
-2024-11-09
+{docdate}
 ifndef::imagesdir[:imagesdir: images]
 //:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
 :sourcedir: ../src/main/java
@@ -8,13 +8,45 @@ ifndef::imagesdir[:imagesdir: images]
 :sectnums:    // Nummerierung der Überschriften / section numbering
 :toc: left
 
+// print the toc here (not at the default position)
+//toc::[]
+
+
 == Projektauftrag
 === Allgemeines
 Das Projekt "*MeditateEasy*" wird in Auftrag gegeben von David Vrhovac, Jan Harrucksteiner und Lukas Larndorfer.
 
-=== Entstehung
-Dieses Projekt entstand durch den fehlenden Markt an hochwertige Software, welche einfache Meditation erlaubt.
+=== Projekthintergrund
+Viele Menschen suchen einfache Wege, um Stress zu reduzieren. Bestehende Apps sind oft kompliziert oder teuer.
 
 === Projektziele
-Mit unserer Software hoffen wir, den Leuten zu einem ruhigeren Alltag zu verhelfen, da die Meditation oftmals der beste Weg dazu ist.
+- Entwicklung einer benutzerfreundlichen Meditations-App.
+- Unterstützung von Nutzern bei einem ruhigen und stressfreien Alltag.
+- Bereitstellung grundlegender Meditationsanleitungen und Videos für Anfänger.
+
+=== Projektbeschreibung
+Erstellung einer minimalistisch gestalteten App mit Basis-Funktionen wie geführten Meditationen und Timer-Funktionen.
+
+=== Meilensteine
+- Prototyp-Design abgeschlossen (KW 48/2024).
+- Implementierung der Hauptfunktionen (KW 2/2025).
+- Testphase abgeschlossen (KW 6/2025).
+
+=== Freigaben
+- Freigabe des Designs durch alle Auftraggeber (KW 49/2024).
+- Freigabe der finalen Version nach Beta-Test (KW 7/2025).
+
+=== Projektstart
+09.11.2024.
+
+=== Projektende
+Noch kein genaues Datum festgelegt.
+
+=== Projektrisiken
+- Verzögerungen bei der Entwicklung.
+- Unzureichendes Nutzerfeedback in der Testphase.
+
+=== Projektergebnisse
+- Funktionsfähige App mit einfacher Bedienung.
+- Dokumentation der Nutzung und Installation.
 
