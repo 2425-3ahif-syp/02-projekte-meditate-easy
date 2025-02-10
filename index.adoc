@@ -1,0 +1,46 @@
+= Meditate Easy
+:author: Harrucksteiner Jan, Larndorfer Lukas, Vrhovac David
+:revnumber: 1.0
+:revdate: {docdate}
+:revremark: SLIDEDEMO @ HTL Leonding
+:encoding: utf-8
+:lang: de
+:doctype: article
+//:icons: font
+:customcss: css/presentation.css
+//:revealjs_customtheme: css/sky.css
+//:revealjs_customtheme: css/black.css
+:revealjs_width: 1408
+:revealjs_height: 792
+:source-highlighter: highlightjs
+//:revealjs_parallaxBackgroundImage: images/background-landscape-light-orange.jpg
+//:revealjs_parallaxBackgroundSize: 4936px 2092px
+//:highlightjs-theme: css/atom-one-light.css
+// we want local served font-awesome fonts
+:iconfont-remote!:
+:iconfont-name: fonts/fontawesome/css/all
+//:revealjs_parallaxBackgroundImage: background-landscape-light-orange.jpg
+//:revealjs_parallaxBackgroundSize: 4936px 2092px
+ifdef::env-ide[]
+:imagesdir: ../images
+endif::[]
+ifndef::env-ide[]
+:imagesdir: images
+endif::[]
+//:revealjs_theme: sky
+//:title-slide-background-image: img.png
+:title-slide-transition-speed: fast
+
+== Problemstellung
+Viele Menschen suchen eine einfache Möglichkeit zur
+Stressbewältigung durch Meditation. Bestehende Apps
+sind oft unübersichtlich, wenig anpassbar oder
+benötigen eine Internetverbindung.
+
+== Aufgabenstellung
+Die Aufgabe ist eine benutzerfreundliche Meditations-App zu entwickeln.
+Wichtige Funktionen:
+
+* Meditationsübungen mit genauen Anleitungen und verschiedenen Schwierigkeitsgraden
+* Timer mit dem man einstellen kann wie lange man meditieren will
+* Offline-Modus, damit man überall zu jeder Zeit meditieren kann
