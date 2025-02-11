@@ -67,11 +67,11 @@ rectangle "Meditate Easy" {
     usecase "Videos verwalten" as UC5
 }
 
-Benutzer --> UC1
+Benutzer -- UC1
 UC1 ..|> UC2 : <<extend>>
 UC1 ..|> UC3 : <<extend>>
-Benutzer --> UC4
-Admin --> UC5
+Benutzer -- UC4
+Admin -- UC5
 
 @enduml
 ----
