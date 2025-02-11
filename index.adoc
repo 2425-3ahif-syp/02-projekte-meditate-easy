@@ -37,7 +37,6 @@ link:../docs/projektauftrag/projektauftrag.adoc[Projektauftrag^] +
 link:../docs/pflichtenheft/pflichtenheft.adoc[Pflichtenheft^] +
 https://vm81.htl-leonding.ac.at/projects/f7d7e4af-841c-42af-99f2-fa93249c1c1b[YouTrack^]
 
-
 == Problemstellung
 Viele Menschen suchen eine einfache Möglichkeit zur
 Stressbewältigung durch Meditation. Bestehende Apps
