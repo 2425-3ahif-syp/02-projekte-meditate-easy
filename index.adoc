@@ -62,16 +62,16 @@ actor Admin
 rectangle "Meditate Easy" {
     usecase "Meditationsübungen starten" as UC1
     usecase "Timer einstellen" as UC2
-    usecase "Fortschritt speichern" as UC4
-    usecase "Videos ansehen" as UC6
-    usecase "Videos verwalten" as UC7
+    usecase "Fortschritt speichern" as UC3
+    usecase "Videos ansehen" as UC4
+    usecase "Videos verwalten" as UC5
 }
 
 Benutzer --> UC1
 UC1 ..|> UC2 : <<extend>>
+UC1 ..|> UC3 : <<extend>>
 Benutzer --> UC4
-Benutzer --> UC6
-Admin --> UC7
+Admin --> UC5
 
 @enduml
 ----
