@@ -1,0 +1,12 @@
+= Meditate Easy
+
+== Team:
+
+* Harrucksteiner Jan
+* Larndorfer Lukas
+* Vrhovac David
+
+== Docs:
+
+link:docs/projektauftrag/projektauftrag.adoc[Projektauftrag^]
+link:docs/pflichtenheft/pflichtenheft.adoc[Pflichtenheft^]
