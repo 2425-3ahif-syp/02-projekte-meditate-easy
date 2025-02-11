@@ -51,3 +51,28 @@ Wichtige Funktionen:
 * Meditationsübungen mit genauen Anleitungen und verschiedenen Schwierigkeitsgraden
 * Timer mit dem man einstellen kann wie lange man meditieren will
 * Offline-Modus, damit man überall zu jeder Zeit meditieren kann
+
+== Use Case Diagram
+[plantuml,meditateeasy-ucd,png]
+----
+@startuml
+left to right direction
+actor Benutzer
+actor Admin
+
+rectangle "Meditate Easy" {
+    usecase "Meditationsübungen starten" as UC1
+    usecase "Timer einstellen" as UC2
+    usecase "Fortschritt speichern" as UC4
+    usecase "Videos ansehen" as UC6
+    usecase "Videos verwalten" as UC7
+}
+
+Benutzer --> UC1
+UC1 ..|> UC2 : <<extend>>
+Benutzer --> UC4
+Benutzer --> UC6
+Admin --> UC7
+
+@enduml
+----

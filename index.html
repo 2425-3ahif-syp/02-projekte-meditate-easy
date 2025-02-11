@@ -424,7 +424,27 @@ sind oft unübersichtlich, wenig anpassbar oder
 benötigen eine Internetverbindung.</p></div></div></section>
 <section id="_aufgabenstellung"><h2>Aufgabenstellung</h2><div class="slide-content"><div class="paragraph"><p>Die Aufgabe ist eine benutzerfreundliche Meditations-App zu entwickeln.
 Wichtige Funktionen:</p></div>
-<div class="ulist"><ul><li><p>Meditationsübungen mit genauen Anleitungen und verschiedenen Schwierigkeitsgraden</p></li><li><p>Timer mit dem man einstellen kann wie lange man meditieren will</p></li><li><p>Offline-Modus, damit man überall zu jeder Zeit meditieren kann</p></li></ul></div></div></section></div></div><script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="ulist"><ul><li><p>Meditationsübungen mit genauen Anleitungen und verschiedenen Schwierigkeitsgraden</p></li><li><p>Timer mit dem man einstellen kann wie lange man meditieren will</p></li><li><p>Offline-Modus, damit man überall zu jeder Zeit meditieren kann</p></li></ul></div></div></section>
+<section id="_use_case_diagram"><h2>Use Case Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>@startuml
+left to right direction
+actor Benutzer
+actor Admin
+
+rectangle "Meditate Easy" {
+    usecase "Meditationsübungen starten" as UC1
+    usecase "Timer einstellen" as UC2
+    usecase "Fortschritt speichern" as UC4
+    usecase "Videos ansehen" as UC6
+    usecase "Videos verwalten" as UC7
+}
+
+Benutzer --&gt; UC1
+UC1 ..|&gt; UC2 : &lt;&lt;extend&gt;&gt;
+Benutzer --&gt; UC4
+Benutzer --&gt; UC6
+Admin --&gt; UC7
+
+@enduml</pre></div></div></div></section></div></div><script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
