@@ -30,7 +30,7 @@ jobs:
             -w /documents \
             asciidoctor/docker-asciidoctor:latest \
             asciidoctor-revealjs \
-            -r asciidoctor-diagram \          
+            -r asciidoctor-diagram \
             -r asciidoctor-revealjs \
             -a revealjsdir=https://cdn.jsdelivr.net/npm/reveal.js@4.5.0 \
             -a revealjs_theme=white \
