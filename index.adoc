@@ -54,7 +54,7 @@ Wichtige Funktionen:
 == GUI - Wireframes
 
 === Auswahl Instruktionen
-image::wireframe_exercise_select.png[]
+image::wireframe_exercise_select.png[scaledwidth=80%]
 
 === Instruktion (mit Timer)
 image::wireframe_exercise_timer.png[]
