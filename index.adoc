@@ -51,6 +51,23 @@ Wichtige Funktionen:
 * Timer mit dem man einstellen kann wie lange man meditieren will
 * Offline-Modus, damit man überall zu jeder Zeit meditieren kann
 
+== GUI - Wireframes
+
+=== Auswahl Instruktionen
+image::wireframe_exercise_select.png[]
+
+=== Instruktion (mit Timer)
+image::wireframe_exercise_timer.png[]
+
+=== Instruktion (mit Stoppuhr)
+image::wireframe_exercise_stopwatch.png[]
+
+=== Auswahl Videos
+image::wireframe_video_select.png[]
+
+=== Anleitungsvideo
+image::wireframe_video_view.png[]
+
 == Use Case Diagram
 [plantuml,meditateeasy-ucd,png]
 ----
