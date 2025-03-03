@@ -35,7 +35,9 @@ endif::[]
 
 link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/docs/projektauftrag/projektauftrag.adoc[Projektauftrag^] +
 link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/docs/pflichtenheft/pflichtenheft.adoc[Pflichtenheft^] +
+link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/docs/wireframes.adoc[Wireframes^] +
 link:https://vm81.htl-leonding.ac.at/projects/f7d7e4af-841c-42af-99f2-fa93249c1c1b[YouTrack^]
+
 
 == Problemstellung
 Viele Menschen suchen eine einfache Möglichkeit zur
@@ -54,7 +56,7 @@ Wichtige Funktionen:
 == GUI - Wireframes
 
 === Auswahl Instruktionen
-image::wireframe_exercise_select.png[scaledwidth=80%]
+image::wireframe_exercise_select.png[]
 
 === Instruktion (mit Timer)
 image::wireframe_exercise_timer.png[]
