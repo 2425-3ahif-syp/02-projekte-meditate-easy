@@ -58,19 +58,19 @@ Stressbewältigung durch Meditation.
 Bestehende Apps sind oft unübersichtlich, wenig anpassbar oder
 benötigen eine Internetverbindung.
 
-=== Aufgabenstellung
+=== Anforderungen (Soll-Zustand)
 - Entwicklung einer benutzerfreundlichen Meditations-App mit strukturierten Anleitungen.
 - Bereitstellung verschiedener Meditationsarten.
 - Offline-Verfügbarkeit für uneingeschränkte Nutzung.
 
-==== Funktionale Anforderungen
+=== Funktionale Anforderungen
 - Bereitstellung verschiedener Meditationsübungen.
 - Timer zur individuellen Anpassung der Meditationsdauer.
 - Anpassungsmöglichkeiten für Übungen (Dauer).
 - Messung der Zeit mit Stoppuhr
 - Keine ungewollte Datenübertragung, sichere Nutzung.
 
-==== Nichtfunktionale Anforderungen (NFA)
+=== Nichtfunktionale Anforderungen (NFA)
 - Einfache und intuitive Bedienung.
 - Ansprechendes Design.
 - Stabiler und effizienter Betrieb.
