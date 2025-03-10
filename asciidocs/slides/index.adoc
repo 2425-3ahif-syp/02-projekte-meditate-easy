@@ -40,19 +40,6 @@ link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/ascii
 link:https://vm81.htl-leonding.ac.at/projects/f7d7e4af-841c-42af-99f2-fa93249c1c1b[YouTrack^]
 
 
-== Problemstellung
-Viele Menschen suchen eine einfache Möglichkeit zur
-Stressbewältigung durch Meditation. Bestehende Apps
-sind oft unübersichtlich, wenig anpassbar oder
-benötigen eine Internetverbindung.
-
-== Aufgabenstellung
-Die Aufgabe ist eine benutzerfreundliche Meditations-App zu entwickeln.
-Wichtige Funktionen:
-
-* Meditationsübungen mit genauen Anleitungen und verschiedenen Schwierigkeitsgraden
-* Timer mit dem man einstellen kann wie lange man meditieren will
-* Offline-Modus, damit man überall zu jeder Zeit meditieren kann
 
 == GUI - Wireframes
 
