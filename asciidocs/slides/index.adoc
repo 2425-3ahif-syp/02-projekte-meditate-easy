@@ -27,7 +27,7 @@ endif::[]
 ifndef::env-ide[]
 :imagesdir: images
 endif::[]
-//:revealjs_theme: sky
+:revealjs_theme: white
 //:title-slide-background-image: img.png
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
