@@ -7,7 +7,7 @@
 :lang: de
 :doctype: article
 //:icons: font
-//:customcss: css/presentation.css
+:customcss: css/custom.css
 //:revealjs_customtheme: css/sky.css
 //:revealjs_customtheme: css/black.css
 :revealjs_width: 1408
