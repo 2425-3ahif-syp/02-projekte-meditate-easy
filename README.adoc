@@ -8,8 +8,8 @@
 
 == Docs:
 
-link:docs/projektauftrag/projektauftrag.adoc[Projektauftrag^]
+link:asciidocs/docs/projektauftrag.adoc[Projektauftrag^]
 
-link:docs/pflichtenheft/pflichtenheft.adoc[Pflichtenheft^]
+link:asciidocs/docs/pflichtenheft.adoc[Pflichtenheft^]
 
-link:docs/wireframes.adoc[Wireframes^]
+link:asciidocs/docs/wireframes.adoc[Wireframes^]
