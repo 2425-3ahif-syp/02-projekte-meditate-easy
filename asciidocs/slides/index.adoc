@@ -7,7 +7,7 @@
 :lang: de
 :doctype: article
 //:icons: font
-:customcss: css/presentation.css
+//:customcss: css/presentation.css
 //:revealjs_customtheme: css/sky.css
 //:revealjs_customtheme: css/black.css
 :revealjs_width: 1408
@@ -57,19 +57,19 @@ Wichtige Funktionen:
 == GUI - Wireframes
 
 === Auswahl Instruktionen
-image::wireframe_exercise_select.png[background]
+image::wireframe_exercise_select.png[wf1, 1000, 562]
 
 === Instruktion (mit Timer)
-image::wireframe_exercise_timer.png[background]
+image::wireframe_exercise_timer.png[wf2, 1000, 562]
 
 === Instruktion (mit Stoppuhr)
-image::wireframe_exercise_stopwatch.png[background]
+image::wireframe_exercise_stopwatch.png[wf3, 1000, 562]
 
 === Auswahl Videos
-image::wireframe_video_select.png[background]
+image::wireframe_video_select.png[wf4, 1000, 562]
 
 === Anleitungsvideo
-image::wireframe_video_view.png[background]
+image::wireframe_video_view.png[wf5, 1000, 562]
 
 == Use Case Diagram
 [plantuml,meditateeasy-ucd,png]
