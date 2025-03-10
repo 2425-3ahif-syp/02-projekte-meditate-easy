@@ -10,8 +10,8 @@
 :customcss: css/presentation.css
 //:revealjs_customtheme: css/sky.css
 //:revealjs_customtheme: css/black.css
-:revealjs_width: 1408
-:revealjs_height: 792
+//:revealjs_width: 1408
+//:revealjs_height: 792
 :source-highlighter: highlightjs
 //:revealjs_parallaxBackgroundImage: images/background-landscape-light-orange.jpg
 //:revealjs_parallaxBackgroundSize: 4936px 2092px
@@ -57,19 +57,19 @@ Wichtige Funktionen:
 == GUI - Wireframes
 
 === Auswahl Instruktionen
-image::wireframe_exercise_select.png[background, size="contain"]
+image::wireframe_exercise_select.png[background]
 
 === Instruktion (mit Timer)
-image::wireframe_exercise_timer.png[background, size="contain"]
+image::wireframe_exercise_timer.png[background]
 
 === Instruktion (mit Stoppuhr)
-image::wireframe_exercise_stopwatch.png[background, size="contain"]
+image::wireframe_exercise_stopwatch.png[background]
 
 === Auswahl Videos
-image::wireframe_video_select.png[background, size="contain"]
+image::wireframe_video_select.png[background]
 
 === Anleitungsvideo
-image::wireframe_video_view.png[background, size="contain"]
+image::wireframe_video_view.png[background]
 
 == Use Case Diagram
 [plantuml,meditateeasy-ucd,png]
