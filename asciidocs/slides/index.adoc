@@ -57,19 +57,19 @@ Wichtige Funktionen:
 == GUI - Wireframes
 
 === Auswahl Instruktionen
-image::wireframe_exercise_select.png[]
+image::wireframe_exercise_select.png[background, size="contain"]
 
 === Instruktion (mit Timer)
-image::wireframe_exercise_timer.png[]
+image::wireframe_exercise_timer.png[background, size="contain"]
 
 === Instruktion (mit Stoppuhr)
-image::wireframe_exercise_stopwatch.png[]
+image::wireframe_exercise_stopwatch.png[background, size="contain"]
 
 === Auswahl Videos
-image::wireframe_video_select.png[]
+image::wireframe_video_select.png[background, size="contain"]
 
 === Anleitungsvideo
-image::wireframe_video_view.png[]
+image::wireframe_video_view.png[background, size="contain"]
 
 == Use Case Diagram
 [plantuml,meditateeasy-ucd,png]
