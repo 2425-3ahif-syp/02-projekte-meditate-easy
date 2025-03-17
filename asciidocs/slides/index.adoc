@@ -39,59 +39,19 @@ link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/ascii
 link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/asciidocs/docs/wireframes.adoc[Wireframes^] +
 link:https://vm81.htl-leonding.ac.at/projects/f7d7e4af-841c-42af-99f2-fa93249c1c1b[YouTrack^]
 
-== Pflichtenheft "Was mache ich"
+== Problemstellung
+ Viele Menschen suchen eine einfache Möglichkeit zur
+ Stressbewältigung durch Meditation. Bestehende Apps
+ sind oft unübersichtlich, wenig anpassbar oder
+ benötigen eine Internetverbindung.
 
-=== Ausgangssituation
-- Immer mehr Menschen leiden unter Stress durch Schule, Arbeit und Alltag.
-- Viele suchen nach einer einfachen und effektiven Meditations-App.
+== Aufgabenstellung
+Die Aufgabe ist eine benutzerfreundliche Meditations-App zu entwickeln. +
+Wichtige Funktionen:
 
-
-=== Istzustand
-- Viele Meditations-Apps sind ungenau und wenig benutzerfreundlich.
-- Oft fehlen detaillierte Anleitungen zu verschiedenen Übungen.
-- Anpassungsmöglichkeiten (z. B. Übungsdauer) sind selten vorhanden.
-- Viele Apps benötigen eine ständige Internetverbindung.
-
-=== Problemstellung
-Viele Menschen suchen eine einfache Möglichkeit zur
-Stressbewältigung durch Meditation.
-Bestehende Apps sind oft unübersichtlich, wenig anpassbar oder
-benötigen eine Internetverbindung.
-
-=== Anforderungen (Soll-Zustand)
-- Entwicklung einer benutzerfreundlichen Meditations-App mit strukturierten Anleitungen.
-- Bereitstellung verschiedener Meditationsarten.
-- Offline-Verfügbarkeit für uneingeschränkte Nutzung.
-
-=== Funktionale Anforderungen
-- Bereitstellung verschiedener Meditationsübungen.
-- Timer zur individuellen Anpassung der Meditationsdauer.
-- Anpassungsmöglichkeiten für Übungen (Dauer).
-- Messung der Zeit mit Stoppuhr
-- Keine ungewollte Datenübertragung, sichere Nutzung.
-
-=== Nichtfunktionale Anforderungen (NFA)
-- Einfache und intuitive Bedienung.
-- Ansprechendes Design.
-- Stabiler und effizienter Betrieb.
-- Einfache Wartung und Fehlerbehebung.
-
-=== Ziele
-- Entwicklung einer benutzerfreundlichen Meditations-App.
-- Stabile Performance auf verschiedenen Geräten.
-- Fertigstellung innerhalb des Schuljahres.
-- Kostengünstige Umsetzung.
-- Regelmäßige Tests zur Sicherstellung hoher Qualität.
-
-=== Mengengerüst
-- Datenübertragung: Anleitungen und Übungen.
-- Datenbestände: Sammlung an Meditationsübungen.
-- Geschätzte gleichzeitige Nutzer: 500 - 1000.
-
-=== Rahmenbedingungen
-- Projektabschluss bis Ende des Schuljahres.
-- Entwicklung mit Java und JavaFX.
-
+* Meditationsübungen mit genauen Anleitungen und verschiedenen Schwierigkeitsgraden
+* Timer mit dem man einstellen kann wie lange man meditieren will
+* Offline-Modus, damit man überall zu jeder Zeit meditieren kann
 
 
 == GUI - Wireframes
