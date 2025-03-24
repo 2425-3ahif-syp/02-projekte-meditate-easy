@@ -29,8 +29,10 @@ public class StartView {
         navBar.getStyleClass().add("navbar");
 
         // Video button
+        videoBtn.getStyleClass().add("video-btn");
 
         // Instruction button
+        instructionBtn.getStyleClass().add("instruction-btn");
 
         // Generate root view
         root.getChildren().addAll(navBar);
