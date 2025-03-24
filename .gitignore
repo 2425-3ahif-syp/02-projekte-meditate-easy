@@ -36,3 +36,5 @@ Temporary Items
 dist/
 docs/slides/revealjs
 .idea/
+## JavaFX
+meditateeasy/db/meditateeasyDB.mv.db
