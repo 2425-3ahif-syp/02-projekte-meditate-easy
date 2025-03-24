@@ -95,3 +95,28 @@ Admin -- UC5
 
 @enduml
 ----
+
+== CLD
+[plantuml,meditateeasy-cld,png]
+----
+@startuml
+
+class Instruction {
+    * InstructionId: int
+    * title: string
+    * description: string
+}
+class Difficulty {
+    * difficultyId: int
+    * description: string
+}
+class Video {
+    * videoId: int
+    * title: string
+    * link: string
+}
+
+Video }o-|| Difficulty
+Difficulty ||-o{ Instruction
+@enduml
+----
