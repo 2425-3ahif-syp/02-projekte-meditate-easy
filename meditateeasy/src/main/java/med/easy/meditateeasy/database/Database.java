@@ -48,14 +48,16 @@ public class Database {
                         ");",
 
                 "CREATE TABLE instruction (" +
-                        "    title VARCHAR(255) PRIMARY KEY," +
+                        "    instructionId INT PRIMARY KEY AUTO_INCREMENT," +
+                        "    title VARCHAR(255)," +
                         "    description VARCHAR(255)," +
                         "    difficultyId INT," +
                         "    FOREIGN KEY (difficultyId) REFERENCES Difficulty(difficultyId) ON DELETE CASCADE" +
                         ");",
 
                 "CREATE TABLE video (" +
-                        "    title VARCHAR(255) PRIMARY KEY," +
+                        "    videoId INT PRIMARY KEY AUTO_INCREMENT," +
+                        "    title VARCHAR(255)," +
                         "    link VARCHAR(255)," +
                         "    difficultyId INT," +
                         "    FOREIGN KEY (difficultyId) REFERENCES Difficulty(difficultyId) ON DELETE CASCADE" +
