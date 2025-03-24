@@ -13,6 +13,7 @@ public class MeditateEasyApp extends Application {
     public void start(Stage startStage) throws IOException {
         DBManager.startDatabase();
         Database.getInstance();
+        Database.getInstance().insertTestData();
 
         startStage.setMaximized(true);
         StartPresenter.show(startStage);

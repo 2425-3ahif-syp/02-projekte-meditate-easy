@@ -1,9 +1,14 @@
 package med.easy.meditateeasy.view;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import med.easy.meditateeasy.model.Instruction;
+
+import java.util.List;
 
 public class InstructionView {
     private final VBox root = new VBox();
@@ -13,6 +18,9 @@ public class InstructionView {
     private final Button videoBtn = new Button("Anleitungsvideos");
     private final Button instructionBtn = new Button("Instruktionen");
     private final Button homeBtn = new Button("Home");
+
+    // Instruction list
+    private final ListView<Instruction> lvInstructions = new ListView<>();
 
     public InstructionView() {
         init();
@@ -37,7 +45,7 @@ public class InstructionView {
         homeBtn.getStyleClass().add("home-btn");
 
         // Generate root view
-        root.getChildren().addAll(navBar);
+        root.getChildren().addAll(navBar, lvInstructions);
     }
 
     public VBox getRoot() {
@@ -58,5 +66,9 @@ public class InstructionView {
 
     public Stage getStage() {
         return (Stage) root.getScene().getWindow();
+    }
+
+    public ListView<Instruction> getInstructionList() {
+        return lvInstructions;
     }
 }

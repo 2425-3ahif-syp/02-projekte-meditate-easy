@@ -75,8 +75,6 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void closeConnection() {
@@ -87,6 +85,20 @@ public class Database {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void insertTestData() {
+        try (Statement statement = connection.createStatement()) {
+            statement.execute("INSERT INTO difficulty (description) VALUES ('Anfänger')");
+            statement.execute("INSERT INTO difficulty (description) VALUES ('Fortgeschritten')");
+            statement.execute("INSERT INTO difficulty (description) VALUES ('Profi')");
+
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Instruction 1', 'Description 1', 1)");
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Instruction 2', 'Description 2', 2)");
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Instruction 3', 'Description 3', 3)");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
