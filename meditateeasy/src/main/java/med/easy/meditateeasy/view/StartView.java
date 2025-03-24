@@ -1,9 +1,9 @@
 package med.easy.meditateeasy.view;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class StartView {
     private final VBox root = new VBox();
@@ -40,5 +40,17 @@ public class StartView {
 
     public VBox getRoot() {
         return root;
+    }
+
+    public Button getVideoBtn() {
+        return videoBtn;
+    }
+
+    public Button getInstructionBtn() {
+        return instructionBtn;
+    }
+
+    public Stage getStage() {
+        return (Stage) root.getScene().getWindow();
     }
 }

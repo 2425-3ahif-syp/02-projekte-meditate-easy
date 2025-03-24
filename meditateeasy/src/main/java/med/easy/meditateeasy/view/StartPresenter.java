@@ -11,6 +11,19 @@ public class StartPresenter {
 
     private StartPresenter(StartView view) {
         this.view = view;
+        attachEvents();
+    }
+
+    private void attachEvents() {
+        // open video page
+        view.getVideoBtn().setOnAction(event -> {
+            VideoPresenter.show(view.getStage());
+        });
+
+        // open instruction page
+        view.getInstructionBtn().setOnAction(event -> {
+            InstructionPresenter.show(view.getStage());
+        });
     }
 
     public static void show(Stage stage) {
