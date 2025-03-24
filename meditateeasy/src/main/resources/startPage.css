@@ -1,25 +1,18 @@
 .navbar {
     -fx-background-color: lightgreen;
-    -fx-padding: 15;
-    -fx-spacing: 15;
+    -fx-padding: 1.8em;
+    -fx-spacing: 1.8em;
 }
 
-.video-btn {
+.video-btn, .instruction-btn {
     -fx-background-color: #4e95d9;
     -fx-text-fill: white;
+    -fx-font-size: 1.6em;
+    -fx-padding: 1em 3em;
+    -fx-border-radius: 0.5em;
 }
 
-.instruction-btn {
-    -fx-background-color: #4e95d9;
-    -fx-text-fill: white;
-}
-
-.video-btn:hover {
-    -fx-background-color: #83cbeb;
-    -fx-text-fill: white;
-}
-
-.instruction-btn:hover {
+.video-btn:hover, .instruction-btn:hover {
     -fx-background-color: #83cbeb;
     -fx-text-fill: white;
 }
