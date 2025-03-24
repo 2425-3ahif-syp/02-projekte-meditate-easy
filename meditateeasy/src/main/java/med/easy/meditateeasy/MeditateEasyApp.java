@@ -1,21 +1,25 @@
 package med.easy.meditateeasy;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.DBManager;
 import med.easy.meditateeasy.database.Database;
-import org.h2.store.Data;
+import med.easy.meditateeasy.view.StartPresenter;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MeditateEasyApp extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage startStage) throws IOException {
         DBManager.startDatabase();
         Database.getInstance();
+        StartPresenter.show(startStage);
+    }
 
+    @Override
+    public void stop() throws Exception {
+        Database.getInstance().closeConnection();
+        DBManager.stopDatabase();
     }
 
     public static void main(String[] args) {
