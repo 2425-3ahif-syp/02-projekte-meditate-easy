@@ -4,6 +4,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import med.easy.meditateeasy.database.DifficultyRepository;
 
 public class Instruction {
     private IntegerProperty instructionId = new SimpleIntegerProperty();
@@ -11,15 +12,14 @@ public class Instruction {
     private StringProperty description = new SimpleStringProperty();
     private IntegerProperty difficultyId = new SimpleIntegerProperty();
 
-    public Instruction() {
-
-    }
+    private DifficultyRepository difficultyRepository;
 
     public Instruction(int instructionId, String title, String description, int difficultyId) {
         setInstructionId(instructionId);
         setTitle(title);
         setDescription(description);
         setDifficultyId(difficultyId);
+        difficultyRepository = new DifficultyRepository();
     }
 
     // Getter and Setter
@@ -70,5 +70,10 @@ public class Instruction {
 
     public void setDifficultyId(int difficultyId) {
         this.difficultyId.set(difficultyId);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Übung %s | Schwierigkeitsgrad %s", this.getTitle(), difficultyRepository.getDifficulty(getDifficultyId()).toString());
     }
 }

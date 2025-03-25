@@ -1,11 +1,9 @@
 package med.easy.meditateeasy.database;
 
+import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,11 +34,27 @@ public class InstructionRepository {
             e.printStackTrace();
         }
 
-        // print the instruction list
-        for (Instruction instruction : instructionList) {
-            System.out.println(instruction.getInstructionId() + " " + instruction.getTitle() + " " + instruction.getDescription() + " " + instruction.getDifficultyId());
+        return instructionList;
+    }
+
+    public Difficulty getDifficulty(int id) {
+        String sql = "SELECT * FROM DIFFICULTY WHERE difficultyId = ?1";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return new Difficulty(
+                            rs.getInt("difficultyId"),
+                            rs.getString("description")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        return instructionList;
+        return null;
     }
 }
