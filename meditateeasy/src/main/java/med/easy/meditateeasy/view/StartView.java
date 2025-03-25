@@ -9,6 +9,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class StartView {
     private final VBox root = new VBox();
 
@@ -20,7 +22,7 @@ public class StartView {
     // Welcome text and image
     private final HBox welcomeContainer = new HBox();
     private final Label welcomeText = new Label("Welcome to Meditate Easy!");
-    private final ImageView welcomeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/welcome-image.png")));
+    private final ImageView welcomeImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/welcome-image.png"))));
 
     public StartView() {
         init();
