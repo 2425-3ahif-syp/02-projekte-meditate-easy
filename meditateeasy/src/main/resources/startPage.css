@@ -16,3 +16,16 @@
     -fx-background-color: #83cbeb;
     -fx-text-fill: white;
 }
+
+.welcome-text {
+    -fx-font-size: 2.5em;
+    -fx-font-weight: bold;
+}
+
+.welcome-image {
+
+}
+
+.welcome-container {
+    -fx-padding: 5em;
+}

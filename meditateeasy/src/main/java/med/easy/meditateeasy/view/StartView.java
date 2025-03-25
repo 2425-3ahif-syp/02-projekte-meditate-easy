@@ -1,24 +1,31 @@
 package med.easy.meditateeasy.view;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class StartView {
     private final VBox root = new VBox();
-    
+
     // Navigation bar
     private final HBox navBar = new HBox();
     private final Button videoBtn = new Button("Anleitungsvideos");
     private final Button instructionBtn = new Button("Instruktionen");
 
-    // ...
+    // Welcome text and image
+    private final HBox welcomeContainer = new HBox();
+    private final Label welcomeText = new Label("Welcome to Meditate Easy!");
+    private final ImageView welcomeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/welcome-image.png")));
 
     public StartView() {
         init();
     }
-    
+
     private void init() {
         // Root
         root.setPrefWidth(800);
@@ -34,8 +41,22 @@ public class StartView {
         // Instruction button
         instructionBtn.getStyleClass().add("instruction-btn");
 
+        // Welcome container
+        welcomeContainer.getChildren().addAll(welcomeText, welcomeImage);
+        welcomeContainer.setAlignment(Pos.CENTER);
+        welcomeContainer.setSpacing(40);
+        welcomeContainer.getStyleClass().add("welcome-container");
+
+        // Welcome text
+        welcomeText.getStyleClass().add("welcome-text");
+
+        // Welcome image
+        welcomeImage.setFitWidth(400);
+        welcomeImage.setPreserveRatio(true);
+        welcomeImage.getStyleClass().add("welcome-image");
+
         // Generate root view
-        root.getChildren().addAll(navBar);
+        root.getChildren().addAll(navBar, welcomeContainer);
     }
 
     public VBox getRoot() {
