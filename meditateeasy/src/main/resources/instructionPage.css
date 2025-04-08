@@ -20,7 +20,7 @@
     -fx-border-radius: 0.5em;
 }
 
-.video-btn:hover, .instruction-btn:hover {
+.video-btn:hover, .home-btn:hover {
     -fx-background-color: #83cbeb;
     -fx-text-fill: white;
 }

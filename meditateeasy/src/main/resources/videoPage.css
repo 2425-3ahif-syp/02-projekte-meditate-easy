@@ -24,8 +24,3 @@
     -fx-background-color: #83cbeb;
     -fx-text-fill: white;
 }
-
-.video-btn:hover {
-    -fx-background-color: #4e95d9;
-    -fx-text-fill: white;
-}
