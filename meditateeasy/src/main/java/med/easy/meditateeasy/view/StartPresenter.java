@@ -16,19 +16,14 @@ public class StartPresenter {
 
     private void attachEvents() {
         view.getVideoBtn().setOnAction(event -> {
-            saveWindowPosition(view.getStage());
             VideoPresenter.show(view.getStage());
         });
 
         view.getInstructionBtn().setOnAction(event -> {
-            saveWindowPosition(view.getStage());
             InstructionPresenter.show(view.getStage());
         });
-    }
 
-    private void saveWindowPosition(Stage stage) {
-        maxX = stage.getX();
-        maxY = stage.getY();
+        view.getHomeBtn().setOnAction(event -> StartPresenter.show(view.getStage()));
     }
 
     public static void show(Stage stage) {
@@ -41,20 +36,6 @@ public class StartPresenter {
 
         stage.setTitle("Meditate Easy");
         stage.setScene(scene);
-
-        stage.setOnShown(e -> {
-            maxX = stage.getX();
-            maxY = stage.getY();
-        });
-
         stage.show();
-    }
-
-    public static double getMaxX() {
-        return maxX;
-    }
-
-    public static double getMaxY() {
-        return maxY;
     }
 }
