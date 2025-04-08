@@ -72,6 +72,9 @@ public class Instruction {
         this.difficultyId.set(difficultyId);
     }
 
+    public Difficulty getDifficulty() {
+        return difficultyRepository.getDifficulty(getDifficultyId());
+    }
     @Override
     public String toString() {
         return String.format("Übung %s | Schwierigkeitsgrad %s", this.getTitle(), difficultyRepository.getDifficulty(getDifficultyId()).toString());

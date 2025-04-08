@@ -4,7 +4,7 @@
     -fx-spacing: 1.8em;
 }
 
-.video-btn, .home-btn {
+.video-btn, .instruction-btn {
     -fx-background-color: #4e95d9;
     -fx-text-fill: white;
     -fx-font-size: 1.6em;
@@ -12,20 +12,24 @@
     -fx-border-radius: 0.5em;
 }
 
-.instruction-btn {
-    -fx-background-color: #83cbeb;
-    -fx-text-fill: white;
-    -fx-font-size: 1.6em;
-    -fx-padding: 1em 3em;
-    -fx-border-radius: 0.5em;
-}
-
-.video-btn:hover, .home-btn:hover {
+.video-btn:hover, .instruction-btn:hover {
     -fx-background-color: #83cbeb;
     -fx-text-fill: white;
 }
 
-.instruction-btn:hover {
-    -fx-background-color: #4e95d9;
-    -fx-text-fill: white;
+.list-cell {
+    -fx-padding: 15;
+    -fx-border-color: #e0e0e0;
+    -fx-font-size: 14px;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+
+
+.text-field, .choice-box {
+    -fx-font-size: 14px;
+    -fx-padding: 8;
 }

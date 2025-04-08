@@ -1,0 +1,19 @@
+.detail-container {
+    -fx-padding: 30;
+    -fx-background-color: #f8f8f8;
+}
+
+.detail-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.detail-difficulty {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666;
+}
+
+.detail-description {
+    -fx-font-size: 14px;
+    -fx-line-spacing: 8px;
+}

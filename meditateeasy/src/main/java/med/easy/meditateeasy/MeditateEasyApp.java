@@ -9,6 +9,8 @@ import med.easy.meditateeasy.view.StartPresenter;
 import java.io.IOException;
 
 public class MeditateEasyApp extends Application {
+
+
     @Override
     public void start(Stage startStage) throws IOException {
         DBManager.startDatabase();
@@ -17,6 +19,7 @@ public class MeditateEasyApp extends Application {
 
         startStage.setMaximized(true);
         StartPresenter.show(startStage);
+
     }
 
     @Override
@@ -28,4 +31,6 @@ public class MeditateEasyApp extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+
 }

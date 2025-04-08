@@ -27,10 +27,7 @@ public class VideoPresenter {
             InstructionPresenter.show(view.getStage());
         });
 
-        // open start page
-        view.getHomeBtn().setOnAction(event -> {
-            StartPresenter.show(view.getStage());
-        });
+
     }
 
     public static void show(Stage stage) {
@@ -41,6 +38,9 @@ public class VideoPresenter {
         scene.getStylesheets().add(Objects.requireNonNull(VideoPresenter.class.getResource("/videoPage.css")).toExternalForm());
         stage.setTitle("Meditate Easy");
         stage.setScene(scene);
+
+        stage.setMaximized(true);
+
         stage.show();
     }
 }
