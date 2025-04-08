@@ -63,6 +63,9 @@ public class InstructionPresenter {
     private void attachEvents() {
         view.getVideoBtn().setOnAction(e -> VideoPresenter.show(view.getStage()));
         view.getInstructionBtn().setOnAction(e -> InstructionPresenter.show(view.getStage()));
+        view.getHomeBtn().setOnAction(event -> {
+            StartPresenter.show(view.getStage());
+        });
     }
 
     public static void show(Stage stage) {

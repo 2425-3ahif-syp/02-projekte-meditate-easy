@@ -18,6 +18,7 @@ public class StartView {
     private final HBox navBar = new HBox();
     private final Button videoBtn = new Button("Anleitungsvideos");
     private final Button instructionBtn = new Button("Instruktionen");
+    private final Button homeBtn = new Button("Home");
 
     // Welcome text and image
     private final HBox welcomeContainer = new HBox();
@@ -34,7 +35,7 @@ public class StartView {
         root.setPrefHeight(600);
 
         // Navigation Bar
-        navBar.getChildren().addAll(videoBtn, instructionBtn);
+        navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);
         navBar.getStyleClass().add("navbar");
 
         // Video button
@@ -42,6 +43,9 @@ public class StartView {
 
         // Instruction button
         instructionBtn.getStyleClass().add("instruction-btn");
+
+        // Home button
+        homeBtn.getStyleClass().add("home-btn");
 
         // Welcome container
         welcomeContainer.getChildren().addAll(welcomeText, welcomeImage);
@@ -75,5 +79,9 @@ public class StartView {
 
     public Stage getStage() {
         return (Stage) root.getScene().getWindow();
+    }
+
+    public Button getHomeBtn() {
+        return homeBtn;
     }
 }

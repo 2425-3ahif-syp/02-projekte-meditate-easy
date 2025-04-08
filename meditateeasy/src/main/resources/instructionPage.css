@@ -4,8 +4,16 @@
     -fx-spacing: 1.8em;
 }
 
-.video-btn, .instruction-btn {
+.video-btn, .home-btn {
     -fx-background-color: #4e95d9;
+    -fx-text-fill: white;
+    -fx-font-size: 1.6em;
+    -fx-padding: 1em 3em;
+    -fx-border-radius: 0.5em;
+}
+
+.instruction-btn {
+    -fx-background-color: #83cbeb;
     -fx-text-fill: white;
     -fx-font-size: 1.6em;
     -fx-padding: 1em 3em;

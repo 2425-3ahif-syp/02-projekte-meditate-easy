@@ -12,6 +12,7 @@ public class VideoView {
     private final HBox navBar = new HBox();
     private final Button videoBtn = new Button("Anleitungsvideos");
     private final Button instructionBtn = new Button("Instruktionen");
+    private final Button homeBtn = new Button("Home");
 
     public VideoView() {
         init();
@@ -23,7 +24,7 @@ public class VideoView {
         root.setPrefHeight(600);
 
         // Navigation Bar
-        navBar.getChildren().addAll(videoBtn, instructionBtn);
+        navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);
         navBar.getStyleClass().add("navbar");
 
         // Video button
@@ -31,6 +32,9 @@ public class VideoView {
 
         // Instruction button
         instructionBtn.getStyleClass().add("instruction-btn");
+
+        // Home btn
+        homeBtn.getStyleClass().add("home-btn");
 
         // Generate root view
         root.getChildren().addAll(navBar);
@@ -46,6 +50,10 @@ public class VideoView {
 
     public Button getInstructionBtn() {
         return instructionBtn;
+    }
+
+    public Button getHomeBtn() {
+        return homeBtn;
     }
 
     public Stage getStage() {

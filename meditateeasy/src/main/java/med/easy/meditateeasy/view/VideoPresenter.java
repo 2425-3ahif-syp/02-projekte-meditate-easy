@@ -27,6 +27,10 @@ public class VideoPresenter {
             InstructionPresenter.show(view.getStage());
         });
 
+        view.getHomeBtn().setOnAction(event -> {
+            StartPresenter.show(view.getStage());
+        });
+
 
     }
 
