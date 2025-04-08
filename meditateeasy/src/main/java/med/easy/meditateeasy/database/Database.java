@@ -25,10 +25,9 @@ public class Database {
     }
 
     public static Database getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             synchronized (Database.class) {
-                if(instance == null)
-                {
+                if (instance == null) {
                     instance = new Database();
                 }
             }
@@ -78,7 +77,7 @@ public class Database {
     }
 
     public void closeConnection() {
-        if(connection != null) {
+        if (connection != null) {
             try {
                 connection.close();
                 System.out.println("Datenbankverbindung geschlossen");
@@ -94,9 +93,9 @@ public class Database {
             statement.execute("INSERT INTO difficulty (description) VALUES ('Fortgeschritten')");
             statement.execute("INSERT INTO difficulty (description) VALUES ('Profi')");
 
-            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Instruction 1', 'Description 1', 1)");
-            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Instruction 2', 'Description 2', 2)");
-            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Instruction 3', 'Description 3', 3)");
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Sonnengruß A', 'Beginne im Stand, atme ein und hebe die Arme. Atme aus, beuge dich nach vorne. Folge dem Flow durch Planke, Chaturanga und herabschauenden Hund.', 1)");
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Krieger-Sequenz', 'Starte im herabschauenden Hund, bring den rechten Fuß nach vorne, richte dich auf in Krieger I. Drehe dann in Krieger II. Atme ruhig und gleichmäßig.', 2)");
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Savasana', 'Lege dich auf den Rücken, schließe die Augen und entspanne den ganzen Körper. Lasse los und bleibe mindestens 5 Minuten liegen.', 3)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
