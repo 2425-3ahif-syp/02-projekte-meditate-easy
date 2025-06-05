@@ -25,6 +25,28 @@
     -fx-text-fill: white;
 }
 
+.login-btn {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    -fx-background-color: #005A9E;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 3);
+}
+
+.login-btn:pressed {
+    -fx-background-color: #004578;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 2, 0, 0, 1);
+}
+
 .list-view {
     -fx-background-color: #e8f5e9;
     -fx-padding: 1em;

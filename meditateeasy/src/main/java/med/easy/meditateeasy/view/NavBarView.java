@@ -24,6 +24,8 @@ public class NavBarView extends HBox {
         videoBtn.getStyleClass().add("video-btn");
         instructionBtn.getStyleClass().add("instruction-btn");
         homeBtn.getStyleClass().add("home-btn");
+        loginBtn.getStyleClass().add("login-btn");
+
     }
 
     public Button getVideoBtn() {

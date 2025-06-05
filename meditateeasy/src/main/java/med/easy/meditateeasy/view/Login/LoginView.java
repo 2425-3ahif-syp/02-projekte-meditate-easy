@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.Region;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class LoginView {
@@ -16,19 +18,32 @@ public class LoginView {
     private final PasswordField passwordField = new PasswordField();
     private final Button loginButton = new Button("Login");
     private final Label messageLabel = new Label();
+    private final Label titleLabel = new Label("Anmeldung");
 
     public LoginView() {
         root.setPrefWidth(1600);
         root.setPrefHeight(1000);
-        root.setSpacing(10);
-        root.setPadding(new Insets(20));
+        root.setSpacing(20);
+        root.setPadding(new Insets(30));
         root.setAlignment(Pos.CENTER);
+        root.getStyleClass().add("login-root");
+
+        titleLabel.getStyleClass().add("login-title");
 
         usernameField.setPromptText("Benutzername");
         passwordField.setPromptText("Passwort");
 
+        usernameField.setMaxWidth(300);
+        passwordField.setMaxWidth(300);
+        loginButton.setMaxWidth(300);
+
+        loginButton.getStyleClass().add("login-btn");
+
+        messageLabel.getStyleClass().add("login-message");
+        messageLabel.setMinHeight(20);
+
         root.getChildren().addAll(
-                new Label("Login"),
+                titleLabel,
                 usernameField,
                 passwordField,
                 loginButton,

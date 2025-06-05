@@ -5,6 +5,8 @@ import med.easy.meditateeasy.database.AdminRepository;
 import javafx.scene.Scene;
 import med.easy.meditateeasy.view.AdminDashboard.AdminDashboardPresenter;
 
+import java.util.Objects;
+
 public class LoginPresenter {
 
     private final LoginView view;
@@ -39,6 +41,8 @@ public class LoginPresenter {
         new LoginPresenter(view);
 
         Scene scene = new Scene(view.getRoot());
+        scene.getStylesheets().add(Objects.requireNonNull(
+                LoginPresenter.class.getResource("/login.css")).toExternalForm());
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

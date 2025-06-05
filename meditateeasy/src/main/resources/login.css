@@ -1,0 +1,54 @@
+.login-root {
+    -fx-background-color: #f0f2f5;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.login-title {
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a4a4a;
+    -fx-padding: 20 0 10 0;
+    -fx-alignment: center;
+}
+
+.text-field, .password-field {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 10 12;
+    -fx-font-size: 14px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #0078D7;
+    -fx-border-width: 2;
+}
+
+.login-btn {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 12 0;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,120,215,0.6), 8, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    -fx-background-color: #005a9e;
+    -fx-effect: dropshadow(gaussian, rgba(0,90,158,0.8), 10, 0, 0, 3);
+}
+
+.login-btn:pressed {
+    -fx-background-color: #004578;
+    -fx-effect: dropshadow(gaussian, rgba(0,70,120,0.9), 4, 0, 0, 1);
+}
+
+.login-message {
+    -fx-font-size: 13px;
+}
