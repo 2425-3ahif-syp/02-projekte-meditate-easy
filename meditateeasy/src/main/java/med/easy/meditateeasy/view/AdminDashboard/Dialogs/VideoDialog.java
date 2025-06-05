@@ -76,8 +76,8 @@ public class VideoDialog extends Stage {
             showAlert("Titel darf nicht leer sein.");
             return false;
         }
-        if (urlField.getText().trim().isEmpty()) {
-            showAlert("URL darf nicht leer sein.");
+        if (!urlField.getText().matches("^https://www\\.youtube\\.com/embed/.+")) {
+            showAlert("Der Link muss im Format https://www.youtube.com/embed/{Text} sein.");
             return false;
         }
         if (difficultyComboBox.getSelectionModel().isEmpty()) {

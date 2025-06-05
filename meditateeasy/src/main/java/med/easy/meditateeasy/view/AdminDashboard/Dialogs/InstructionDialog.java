@@ -50,9 +50,6 @@ public class InstructionDialog extends Stage {
         Button saveButton = new Button("Speichern");
         saveButton.setDefaultButton(true);
         saveButton.setOnAction(e -> {
-            System.out.println(difficultyComboBox.getSelectionModel().getSelectedItem());
-            System.out.println(titleField.getText());
-            System.out.println(descriptionArea.getText());
             if (validateInput()) {
                 saved = true;
                 close();
@@ -82,6 +79,10 @@ public class InstructionDialog extends Stage {
         }
         if (difficultyComboBox.getSelectionModel().isEmpty()) {
             showAlert("Bitte Schwierigkeitsgrad auswählen.");
+            return false;
+        }
+        if(descriptionArea.getText().trim().isEmpty()) {
+            showAlert("Beschreibung darf nicht leer sein");
             return false;
         }
         return true;
