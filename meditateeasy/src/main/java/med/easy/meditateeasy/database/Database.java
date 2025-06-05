@@ -110,6 +110,9 @@ public class Database {
                     "('Geführte Meditation für Achtsamkeit', 'https://www.youtube.com/embed/zEDulC3nPsY', 2)," +
                     "('Yin Yoga für tiefe Entspannung', 'https://www.youtube.com/embed/mn-KTgQnYg0', 3)");
 
+            statement.execute("INSERT INTO admin (username, password_hash) VALUES" +
+                    "('admin', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8')");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

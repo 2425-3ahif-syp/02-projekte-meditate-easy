@@ -23,6 +23,11 @@ public class StartPresenter {
             InstructionPresenter.show(view.getStage());
         });
 
+        view.getLoginBtn().setOnAction(e -> {
+            LoginPresenter.show(view.getStage());
+        });
+
+
         view.getHomeBtn().setOnAction(event -> StartPresenter.show(view.getStage()));
     }
 

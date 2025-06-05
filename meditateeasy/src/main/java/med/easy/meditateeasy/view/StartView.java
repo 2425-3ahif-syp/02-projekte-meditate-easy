@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,6 +21,9 @@ public class StartView {
     private final Button videoBtn = new Button("Anleitungsvideos");
     private final Button instructionBtn = new Button("Instruktionen");
     private final Button homeBtn = new Button("Home");
+    private final Button loginBtn = new Button("Login");
+    Region spacer = new Region();
+
 
     // Welcome text and image
     private final HBox welcomeContainer = new HBox();
@@ -33,9 +38,10 @@ public class StartView {
         // Root
         root.setPrefWidth(1600);
         root.setPrefHeight(1000);
+        HBox.setHgrow(spacer, Priority.ALWAYS);
 
         // Navigation Bar
-        navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);
+        navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn, spacer, loginBtn);
         navBar.getStyleClass().add("navbar");
 
         // Video button
@@ -83,5 +89,9 @@ public class StartView {
 
     public Button getHomeBtn() {
         return homeBtn;
+    }
+
+    public Button getLoginBtn() {
+        return loginBtn;
     }
 }
