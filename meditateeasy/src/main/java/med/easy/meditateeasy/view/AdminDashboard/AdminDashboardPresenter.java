@@ -16,6 +16,7 @@ import med.easy.meditateeasy.model.Video;
 import med.easy.meditateeasy.view.AdminDashboard.Dialogs.DifficultyDialog;
 import med.easy.meditateeasy.view.AdminDashboard.Dialogs.InstructionDialog;
 import med.easy.meditateeasy.view.AdminDashboard.Dialogs.VideoDialog;
+import med.easy.meditateeasy.view.StartPresenter;
 
 import java.util.Objects;
 
@@ -31,17 +32,13 @@ public class AdminDashboardPresenter {
         setupDifficultyTab();
         setupInstructionTab();
         setupVideoTab();
+        attachEvents();
     }
 
-    public static void show(Stage stage) {
-        AdminDashboardView view = new AdminDashboardView();
-        new AdminDashboardPresenter(view);
-        Scene scene = new Scene(view.getRoot());
-        scene.getStylesheets().add(Objects.requireNonNull(
-                AdminDashboardPresenter.class.getResource("/data-tables.css")).toExternalForm());
-        stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.show();
+    private void attachEvents() {
+        view.getBackButton().setOnAction(e -> {
+            StartPresenter.show(view.getStage());
+        });
     }
 
     private void setupDifficultyTab() {
@@ -330,6 +327,19 @@ public class AdminDashboardPresenter {
             return cell;
         });
     }
+
+
+    public static void show(Stage stage) {
+        AdminDashboardView view = new AdminDashboardView();
+        new AdminDashboardPresenter(view);
+        Scene scene = new Scene(view.getRoot());
+        scene.getStylesheets().add(Objects.requireNonNull(
+                AdminDashboardPresenter.class.getResource("/data-tables.css")).toExternalForm());
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
     private void reloadInstructions(TableView<Instruction> table) {
         table.getItems().clear();
         table.getItems().addAll(instructionRepo.getAllInstructions());
