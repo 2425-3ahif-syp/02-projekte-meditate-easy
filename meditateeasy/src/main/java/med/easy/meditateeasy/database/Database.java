@@ -46,7 +46,7 @@ public class Database {
                 "CREATE TABLE IF NOT EXISTS instruction (" +
                         "    instructionId SERIAL PRIMARY KEY," +
                         "    title VARCHAR(255)," +
-                        "    description VARCHAR(255)," +
+                        "    description TEXT," +
                         "    difficultyId INT REFERENCES difficulty(difficultyId) ON DELETE CASCADE" +
                         ");",
 

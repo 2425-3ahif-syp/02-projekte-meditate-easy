@@ -2,8 +2,10 @@ package med.easy.meditateeasy.view.AdminDashboard;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -13,6 +15,7 @@ import med.easy.meditateeasy.database.VideoRepository;
 import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.model.Video;
+import java.util.Objects;
 
 
 public class AdminDashboardPresenter {
@@ -31,8 +34,9 @@ public class AdminDashboardPresenter {
     public static void show(Stage stage) {
         AdminDashboardView view = new AdminDashboardView();
         new AdminDashboardPresenter(view);
-
         Scene scene = new Scene(view.getRoot());
+        scene.getStylesheets().add(Objects.requireNonNull(
+                AdminDashboardPresenter.class.getResource("/data-tables.css")).toExternalForm());
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
@@ -46,8 +50,10 @@ public class AdminDashboardPresenter {
 
         TableColumn<Difficulty, String> descCol = new TableColumn<>("Description");
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        addTooltipToColumn(descCol);
 
         table.getColumns().addAll(idCol, descCol);
+
         table.getItems().addAll(difficultyRepo.getAllDifficulties());
 
         VBox container = new VBox(table);
@@ -63,9 +69,11 @@ public class AdminDashboardPresenter {
 
         TableColumn<Instruction, String> titleCol = new TableColumn<>("Title");
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+        addTooltipToColumn(titleCol);
 
         TableColumn<Instruction, String> descCol = new TableColumn<>("Description");
         descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        addTooltipToColumn(descCol);
 
         TableColumn<Instruction, Integer> difficultyCol = new TableColumn<>("Difficulty ID");
         difficultyCol.setCellValueFactory(new PropertyValueFactory<>("difficultyId"));
@@ -86,9 +94,11 @@ public class AdminDashboardPresenter {
 
         TableColumn<Video, String> titleCol = new TableColumn<>("Title");
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+        addTooltipToColumn(titleCol);
 
         TableColumn<Video, String> linkCol = new TableColumn<>("Link");
         linkCol.setCellValueFactory(new PropertyValueFactory<>("link"));
+        addTooltipToColumn(linkCol);
 
         TableColumn<Video, Integer> difficultyCol = new TableColumn<>("Difficulty ID");
         difficultyCol.setCellValueFactory(new PropertyValueFactory<>("difficultyId"));
@@ -103,5 +113,34 @@ public class AdminDashboardPresenter {
 
     public AdminDashboardView getView() {
         return view;
+    }
+
+    private <T> void addTooltipToColumn(TableColumn<T, String> column) {
+        column.setCellFactory(col -> {
+            TableCell<T, String> cell = new TableCell<>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText(null);
+                        setTooltip(null);
+                    } else {
+                        if (item.length() > 50) {
+                            String displayText = item.substring(0, 50) + "...";
+                            setText(displayText);
+
+                            Tooltip tooltip = new Tooltip(item);
+                            tooltip.setMaxWidth(200);
+                            tooltip.setWrapText(true);
+                            setTooltip(tooltip);
+                        } else {
+                            setText(item);
+                            setTooltip(null);
+                        }
+                    }
+                }
+            };
+            return cell;
+        });
     }
 }

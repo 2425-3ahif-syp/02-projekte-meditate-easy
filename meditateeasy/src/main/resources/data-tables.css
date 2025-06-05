@@ -1,0 +1,112 @@
+.dashboard-title {
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a4a4a;
+    -fx-padding: 20 0 10 0;
+    -fx-alignment: center;
+}
+
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 5 0;
+    -fx-border-color: transparent transparent #ccd9ff transparent;
+}
+
+.tab-pane .tab-header-area .tab {
+    -fx-background-color: #e6ecff;
+    -fx-padding: 10 20;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #444a66;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-style: solid;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.05) , 2, 0.0 , 0 , 1);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab-pane .tab-header-area .tab:selected {
+    -fx-background-color: linear-gradient(to bottom, #a3b8ff, #6c7bff);
+    -fx-text-fill: white;
+    -fx-border-color: transparent transparent #6c7bff transparent;
+    -fx-font-weight: bold;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab-pane .tab-header-area .tab:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: none;
+}
+
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #667eea, #764ba2);
+    -fx-padding: 0 0 5 0;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 40px;
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 10;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .table-cell {
+    -fx-padding: 12 15 12 15;
+    -fx-border-color: transparent transparent #eee transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9f9fb;
+}
+
+.table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #d9e0ff;
+    -fx-cursor: hand;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #667eea;
+    -fx-text-fill: white;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #667eea;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #764ba2;
+}
