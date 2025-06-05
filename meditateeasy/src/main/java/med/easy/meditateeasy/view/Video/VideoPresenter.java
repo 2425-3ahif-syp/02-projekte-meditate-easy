@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view;
+package med.easy.meditateeasy.view.Video;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -6,6 +6,10 @@ import med.easy.meditateeasy.database.VideoRepository;
 import med.easy.meditateeasy.model.Video;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import med.easy.meditateeasy.view.Instruction.InstructionPresenter;
+import med.easy.meditateeasy.view.Login.LoginPresenter;
+import med.easy.meditateeasy.view.StartPresenter;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -25,16 +29,20 @@ public class VideoPresenter {
 
     private void attachEvents() {
         // Navigation
-        view.getVideoBtn().setOnAction(event -> {
+        view.getNavBar().getVideoBtn().setOnAction(event -> {
             VideoPresenter.show(view.getStage());
         });
 
-        view.getInstructionBtn().setOnAction(event -> {
+        view.getNavBar().getInstructionBtn().setOnAction(event -> {
             InstructionPresenter.show(view.getStage());
         });
 
-        view.getHomeBtn().setOnAction(event -> {
+        view.getNavBar().getHomeBtn().setOnAction(event -> {
             StartPresenter.show(view.getStage());
+        });
+
+        view.getNavBar().getLoginBtn().setOnAction(e -> {
+            LoginPresenter.show(view.getStage());
         });
 
         view.getVideoListView().getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {

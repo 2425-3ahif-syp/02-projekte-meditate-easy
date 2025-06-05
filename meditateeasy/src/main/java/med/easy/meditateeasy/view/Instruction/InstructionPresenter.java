@@ -1,13 +1,15 @@
-package med.easy.meditateeasy.view;
+package med.easy.meditateeasy.view.Instruction;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import med.easy.meditateeasy.MeditateEasyApp;
 import med.easy.meditateeasy.database.InstructionRepository;
 import med.easy.meditateeasy.model.Instruction;
+import med.easy.meditateeasy.view.Login.LoginPresenter;
+import med.easy.meditateeasy.view.StartPresenter;
+import med.easy.meditateeasy.view.Video.VideoPresenter;
 
 import java.util.Objects;
 import java.util.function.Predicate;
@@ -61,10 +63,13 @@ public class InstructionPresenter {
     }
 
     private void attachEvents() {
-        view.getVideoBtn().setOnAction(e -> VideoPresenter.show(view.getStage()));
-        view.getInstructionBtn().setOnAction(e -> InstructionPresenter.show(view.getStage()));
-        view.getHomeBtn().setOnAction(event -> {
+        view.getNavBar().getVideoBtn().setOnAction(e -> VideoPresenter.show(view.getStage()));
+        view.getNavBar().getInstructionBtn().setOnAction(e -> InstructionPresenter.show(view.getStage()));
+        view.getNavBar().getHomeBtn().setOnAction(event -> {
             StartPresenter.show(view.getStage());
+        });
+        view.getNavBar().getLoginBtn().setOnAction(e -> {
+            LoginPresenter.show(view.getStage());
         });
     }
 

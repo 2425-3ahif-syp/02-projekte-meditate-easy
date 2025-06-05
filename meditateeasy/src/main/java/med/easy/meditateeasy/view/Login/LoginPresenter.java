@@ -1,8 +1,9 @@
-package med.easy.meditateeasy.view;
+package med.easy.meditateeasy.view.Login;
 
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.AdminRepository;
 import javafx.scene.Scene;
+import med.easy.meditateeasy.view.AdminDashboard.AdminDashboardPresenter;
 
 public class LoginPresenter {
 

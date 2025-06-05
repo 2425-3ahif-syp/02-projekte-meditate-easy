@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view;
+package med.easy.meditateeasy.view.Login;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

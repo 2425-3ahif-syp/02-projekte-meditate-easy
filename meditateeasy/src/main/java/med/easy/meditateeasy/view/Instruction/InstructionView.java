@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view;
+package med.easy.meditateeasy.view.Instruction;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -7,16 +7,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import med.easy.meditateeasy.model.Instruction;
+import med.easy.meditateeasy.view.NavBarView;
 
 public class InstructionView {
     private final VBox root = new VBox();
     private final ListView<Instruction> listView = new ListView<>();
     private final TextField searchField = new TextField();
     private final ChoiceBox<String> difficultyFilter = new ChoiceBox<>();
-    private final HBox navBar = new HBox();
-    private final Button videoBtn = new Button("Anleitungsvideos");
-    private final Button instructionBtn = new Button("Instruktionen");
-    private final Button homeBtn = new Button("Home");
+    private final NavBarView navBar = new NavBarView();
     private final HBox controls = new HBox();
 
     public InstructionView() {
@@ -26,14 +24,6 @@ public class InstructionView {
     private void init() {
         root.setPrefWidth(1600);
         root.setPrefHeight(1000);
-
-
-        // Navigation Bar
-        navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);
-        navBar.getStyleClass().add("navbar");
-        homeBtn.getStyleClass().add("home-btn");
-        videoBtn.getStyleClass().add("video-btn");
-        instructionBtn.getStyleClass().add("instruction-btn");
 
 
         searchField.setPromptText("Suche...");
@@ -70,11 +60,9 @@ public class InstructionView {
     public ListView<Instruction> getListView() { return listView; }
     public TextField getSearchField() { return searchField; }
     public ChoiceBox<String> getDifficultyFilter() { return difficultyFilter; }
-    public Button getVideoBtn() { return videoBtn; }
-    public Button getInstructionBtn() { return instructionBtn; }
     public Stage getStage() { return (Stage) root.getScene().getWindow(); }
 
-    public Button getHomeBtn() {
-        return homeBtn;
+    public NavBarView getNavBar() {
+        return navBar;
     }
 }
