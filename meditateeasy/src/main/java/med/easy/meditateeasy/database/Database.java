@@ -96,6 +96,14 @@ public class Database {
             statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Sonnengruß A', 'Beginne im Stand, atme ein und hebe die Arme. Atme aus, beuge dich nach vorne. Folge dem Flow durch Planke, Chaturanga und herabschauenden Hund.', 1)");
             statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Krieger-Sequenz', 'Starte im herabschauenden Hund, bring den rechten Fuß nach vorne, richte dich auf in Krieger I. Drehe dann in Krieger II. Atme ruhig und gleichmäßig.', 2)");
             statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Savasana', 'Lege dich auf den Rücken, schließe die Augen und entspanne den ganzen Körper. Lasse los und bleibe mindestens 5 Minuten liegen.', 3)");
+
+            statement.execute("INSERT INTO video (title, link, difficultyId) VALUES" +
+                    "('Yoga Flow für den Morgen', 'https://www.youtube.com/embed/_VFRpeEQQxM', 1)," +
+                    "('Abendroutine zur Entspannung', 'https://www.youtube.com/embed/ockCQMt9kM0', 1)," +
+                    "('15 Minuten Ganzkörper Yoga', 'https://www.youtube.com/embed/4Z1RPavOX3s', 2)," +
+                    "('Geführte Meditation für Achtsamkeit', 'https://www.youtube.com/embed/zEDulC3nPsY', 2)," +
+                    "('Yin Yoga für tiefe Entspannung', 'https://www.youtube.com/embed/mn-KTgQnYg0', 3)");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

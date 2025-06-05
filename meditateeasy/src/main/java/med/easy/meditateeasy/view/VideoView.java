@@ -1,9 +1,12 @@
 package med.easy.meditateeasy.view;
 
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import med.easy.meditateeasy.model.Video;
 
 public class VideoView {
     private final VBox root = new VBox();
@@ -14,30 +17,47 @@ public class VideoView {
     private final Button instructionBtn = new Button("Instruktionen");
     private final Button homeBtn = new Button("Home");
 
+    // Video list
+    private final ListView<Video> videoListView = new ListView<>();
+
     public VideoView() {
         init();
     }
 
     private void init() {
-        // Root
         root.setPrefWidth(800);
         root.setPrefHeight(600);
 
-        // Navigation Bar
+        // Navigation bar setup
         navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);
         navBar.getStyleClass().add("navbar");
-
-        // Video button
+        homeBtn.getStyleClass().add("home-btn");
         videoBtn.getStyleClass().add("video-btn");
-
-        // Instruction button
         instructionBtn.getStyleClass().add("instruction-btn");
 
-        // Home btn
-        homeBtn.getStyleClass().add("home-btn");
+        // ListView cell formatting
+        videoListView.setCellFactory(new Callback<>() {
+            @Override
+            public ListCell<Video> call(ListView<Video> param) {
+                return new ListCell<>() {
+                    @Override
+                    protected void updateItem(Video item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty || item == null) {
+                            setText(null);
+                        } else {
+                            setText(String.format("%s\nSchwierigkeit: %s",
+                                    item.getTitle(), item.getDifficulty()));
+                        }
+                    }
+                };
+            }
+        });
 
-        // Generate root view
-        root.getChildren().addAll(navBar);
+        VBox.setVgrow(videoListView, Priority.ALWAYS);
+
+        // Add all components to root
+        root.getChildren().addAll(navBar, videoListView);
     }
 
     public VBox getRoot() {
@@ -54,6 +74,10 @@ public class VideoView {
 
     public Button getHomeBtn() {
         return homeBtn;
+    }
+
+    public ListView<Video> getVideoListView() {
+        return videoListView;
     }
 
     public Stage getStage() {
