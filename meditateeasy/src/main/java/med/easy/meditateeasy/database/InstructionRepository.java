@@ -38,7 +38,7 @@ public class InstructionRepository {
     }
 
     public Difficulty getDifficulty(int id) {
-        String sql = "SELECT * FROM DIFFICULTY WHERE difficultyId = ?1";
+        String sql = "SELECT * FROM DIFFICULTY WHERE difficultyId = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);

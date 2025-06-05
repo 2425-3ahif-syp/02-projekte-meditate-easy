@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: meditateEasyDb
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: meditateEasyDb
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - "5432:5432"
+    volumes:
+      - meditateEasyDb:/var/lib/postgresql/data
+
+volumes:
+  meditateEasyDb:

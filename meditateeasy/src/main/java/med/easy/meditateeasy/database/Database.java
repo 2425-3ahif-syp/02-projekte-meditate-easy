@@ -1,17 +1,14 @@
 package med.easy.meditateeasy.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Database {
 
     private static Database instance;
 
-    private static final String URL = "jdbc:h2:tcp://localhost:9092/./meditateeasyDB";
-    private final static String USERNAME = "sa";
-    private final static String PASSWORD = "";
+    private static final String URL = "jdbc:postgresql://localhost:5432/meditateEasyDb";
+    private static final String USERNAME = "app";
+    private static final String PASSWORD = "app";
 
     private static Connection connection;
 
@@ -41,67 +38,59 @@ public class Database {
 
     private void initialize() throws SQLException {
         String[] createStmts = new String[]{
-                "CREATE TABLE difficulty (" +
-                        "    difficultyId INT PRIMARY KEY AUTO_INCREMENT," +
+                "CREATE TABLE IF NOT EXISTS difficulty (" +
+                        "    difficultyId SERIAL PRIMARY KEY," +
                         "    description VARCHAR(255)" +
                         ");",
 
-                "CREATE TABLE instruction (" +
-                        "    instructionId INT PRIMARY KEY AUTO_INCREMENT," +
+                "CREATE TABLE IF NOT EXISTS instruction (" +
+                        "    instructionId SERIAL PRIMARY KEY," +
                         "    title VARCHAR(255)," +
                         "    description VARCHAR(255)," +
-                        "    difficultyId INT," +
-                        "    FOREIGN KEY (difficultyId) REFERENCES Difficulty(difficultyId) ON DELETE CASCADE" +
+                        "    difficultyId INT REFERENCES difficulty(difficultyId) ON DELETE CASCADE" +
                         ");",
 
-                "CREATE TABLE video (" +
-                        "    videoId INT PRIMARY KEY AUTO_INCREMENT," +
+                "CREATE TABLE IF NOT EXISTS video (" +
+                        "    videoId SERIAL PRIMARY KEY," +
                         "    title VARCHAR(255)," +
                         "    link VARCHAR(255)," +
-                        "    difficultyId INT," +
-                        "    FOREIGN KEY (difficultyId) REFERENCES Difficulty(difficultyId) ON DELETE CASCADE" +
+                        "    difficultyId INT REFERENCES difficulty(difficultyId) ON DELETE CASCADE" +
                         ");",
-                "CREATE TABLE admin (" +
-                        "    id INT AUTO_INCREMENT PRIMARY KEY," +
+
+                "CREATE TABLE IF NOT EXISTS admin (" +
+                        "    id SERIAL PRIMARY KEY," +
                         "    username VARCHAR(50) NOT NULL UNIQUE," +
                         "    password_hash VARCHAR(255) NOT NULL" +
                         ");"
         };
 
-        try (var statement = connection.createStatement()) {
-            statement.execute("DROP TABLE IF EXISTS video");
-            statement.execute("DROP TABLE IF EXISTS instruction");
-            statement.execute("DROP TABLE IF EXISTS difficulty");
-            statement.execute("DROP TABLE IF EXISTS admin");
-
+        try (Statement statement = connection.createStatement()) {
             for (String stmt : createStmts) {
                 statement.execute(stmt);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-                System.out.println("Datenbankverbindung geschlossen");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        try {
+            insertTestData();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void insertTestData() {
         try (Statement statement = connection.createStatement()) {
+            if (!isTableEmpty("difficulty")) {
+                return;
+            }
             statement.execute("INSERT INTO difficulty (description) VALUES ('Anfänger')");
             statement.execute("INSERT INTO difficulty (description) VALUES ('Fortgeschritten')");
             statement.execute("INSERT INTO difficulty (description) VALUES ('Profi')");
 
-            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Sonnengruß A', 'Beginne im Stand, atme ein und hebe die Arme. Atme aus, beuge dich nach vorne. Folge dem Flow durch Planke, Chaturanga und herabschauenden Hund.', 1)");
-            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Krieger-Sequenz', 'Starte im herabschauenden Hund, bring den rechten Fuß nach vorne, richte dich auf in Krieger I. Drehe dann in Krieger II. Atme ruhig und gleichmäßig.', 2)");
-            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES ('Savasana', 'Lege dich auf den Rücken, schließe die Augen und entspanne den ganzen Körper. Lasse los und bleibe mindestens 5 Minuten liegen.', 3)");
+            statement.execute("INSERT INTO instruction (title, description, difficultyId) VALUES" +
+                    "('Sonnengruß A', 'Beginne im Stand, atme ein und hebe die Arme. Atme aus, beuge dich nach vorne. Folge dem Flow durch Planke, Chaturanga und herabschauenden Hund.', 1)," +
+                    "('Krieger-Sequenz', 'Starte im herabschauenden Hund, bring den rechten Fuß nach vorne, richte dich auf in Krieger I. Drehe dann in Krieger II. Atme ruhig und gleichmäßig.', 2)," +
+                    "('Savasana', 'Lege dich auf den Rücken, schließe die Augen und entspanne den ganzen Körper. Lasse los und bleibe mindestens 5 Minuten liegen.', 3)");
 
             statement.execute("INSERT INTO video (title, link, difficultyId) VALUES" +
                     "('Yoga Flow für den Morgen', 'https://www.youtube.com/embed/_VFRpeEQQxM', 1)," +
@@ -112,9 +101,31 @@ public class Database {
 
             statement.execute("INSERT INTO admin (username, password_hash) VALUES" +
                     "('admin', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8')");
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    public void closeConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+                System.out.println("Verbindung geschlossen");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private boolean isTableEmpty(String tableName) {
+        String sql = "SELECT COUNT(*) FROM " + tableName;
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            return rs.next() && rs.getInt(1) == 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }
