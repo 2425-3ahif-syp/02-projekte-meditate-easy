@@ -25,19 +25,57 @@
     -fx-text-fill: white;
 }
 
+.list-view {
+    -fx-background-color: #e8f5e9;
+    -fx-padding: 1em;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0.2, 0, 2);
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #2e7d32;
+}
+
 .list-cell {
-    -fx-padding: 15;
-    -fx-border-color: #e0e0e0;
-    -fx-font-size: 14px;
+    -fx-padding: 15px 20px;
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 6, 0.1, 0, 2);
+    -fx-spacing: 8px;
+    -fx-transition: background-color 0.25s ease;
 }
 
 .list-cell:filled:hover {
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #a5d6a7; /* helleres Grün beim Hover */
 }
 
+.list-cell:filled{
+    -fx-cursor: hand;
+}
 
+.list-cell:selected {
+    -fx-background-color: #388e3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 5px 0 0;
+}
+
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #2e7d32;
+    -fx-background-insets: 2;
+    -fx-background-radius: 8px;
+}
 
 .text-field, .choice-box {
     -fx-font-size: 14px;
     -fx-padding: 8;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-border-color: #81c784;
+    -fx-focus-color: #4caf50;
 }

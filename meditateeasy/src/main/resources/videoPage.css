@@ -24,3 +24,49 @@
     -fx-background-color: #83cbeb;
     -fx-text-fill: white;
 }
+
+.list-view {
+    -fx-background-color: #f1faee;
+    -fx-padding: 1em;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0.2, 0, 2);
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #264653;
+}
+
+.list-cell {
+    -fx-padding: 15px 20px;
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 6, 0.1, 0, 2);
+    -fx-spacing: 8px;
+    -fx-transition: background-color 0.25s ease;
+}
+
+.list-cell:filled{
+    -fx-cursor: hand;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #a8dadc;
+}
+
+.list-cell:selected {
+    -fx-background-color: #457b9d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 5px 0 0;
+}
+
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #2a9d8f;
+    -fx-background-insets: 2;
+    -fx-background-radius: 8px;
+}
