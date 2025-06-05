@@ -25,8 +25,8 @@ public class VideoView {
     }
 
     private void init() {
-        root.setPrefWidth(800);
-        root.setPrefHeight(600);
+        root.setPrefWidth(1600);
+        root.setPrefHeight(1000);
 
         // Navigation bar setup
         navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);

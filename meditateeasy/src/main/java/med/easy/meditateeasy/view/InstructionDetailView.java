@@ -15,6 +15,9 @@ public class InstructionDetailView {
     private final Label descriptionLabel = new Label();
 
     public InstructionDetailView() {
+        root.setPrefWidth(1600);
+        root.setPrefHeight(1000);
+
         header.getChildren().add(backButton);
         header.getStyleClass().add("detail-header");
 

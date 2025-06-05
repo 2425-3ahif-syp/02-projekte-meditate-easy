@@ -31,8 +31,8 @@ public class StartView {
 
     private void init() {
         // Root
-        root.setPrefWidth(800);
-        root.setPrefHeight(600);
+        root.setPrefWidth(1600);
+        root.setPrefHeight(1000);
 
         // Navigation Bar
         navBar.getChildren().addAll(homeBtn, videoBtn, instructionBtn);

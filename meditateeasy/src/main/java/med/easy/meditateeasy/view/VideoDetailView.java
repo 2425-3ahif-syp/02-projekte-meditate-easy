@@ -18,7 +18,8 @@ public class VideoDetailView {
     public VideoDetailView() {
         header.getChildren().add(backButton);
         header.getStyleClass().add("detail-header");
-
+        root.setPrefWidth(1600);
+        root.setPrefHeight(1000);
         root.setSpacing(20);
         root.getStyleClass().add("detail-container");
         titleLabel.getStyleClass().add("detail-title");
