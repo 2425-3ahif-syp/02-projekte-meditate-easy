@@ -60,6 +60,11 @@ public class Database {
                         "    link VARCHAR(255)," +
                         "    difficultyId INT," +
                         "    FOREIGN KEY (difficultyId) REFERENCES Difficulty(difficultyId) ON DELETE CASCADE" +
+                        ");",
+                "CREATE TABLE admin (" +
+                        "    id INT AUTO_INCREMENT PRIMARY KEY," +
+                        "    username VARCHAR(50) NOT NULL UNIQUE," +
+                        "    password_hash VARCHAR(255) NOT NULL" +
                         ");"
         };
 
@@ -67,6 +72,7 @@ public class Database {
             statement.execute("DROP TABLE IF EXISTS video");
             statement.execute("DROP TABLE IF EXISTS instruction");
             statement.execute("DROP TABLE IF EXISTS difficulty");
+            statement.execute("DROP TABLE IF EXISTS admin");
 
             for (String stmt : createStmts) {
                 statement.execute(stmt);
