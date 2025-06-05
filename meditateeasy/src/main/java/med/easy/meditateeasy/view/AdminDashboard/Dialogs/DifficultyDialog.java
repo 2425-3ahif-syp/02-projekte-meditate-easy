@@ -1,0 +1,85 @@
+package med.easy.meditateeasy.view.AdminDashboard.Dialogs;
+
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import med.easy.meditateeasy.model.Difficulty;
+
+public class DifficultyDialog extends Stage {
+
+    private final TextField descriptionField = new TextField();
+
+    private Difficulty difficulty;
+    private boolean saved = false;
+
+    public DifficultyDialog(Difficulty difficulty) {
+        this.difficulty = difficulty;
+
+        setTitle(difficulty == null ? "Neue Schwierigkeit hinzufügen" : "Schwierigkeit bearbeiten");
+        initModality(Modality.APPLICATION_MODAL);
+
+        VBox root = new VBox(10);
+        root.setPadding(new Insets(15));
+
+        descriptionField.setPromptText("Beschreibung");
+
+        if (difficulty != null) {
+            descriptionField.setText(difficulty.getDescription());
+        }
+
+        Button saveButton = new Button("Speichern");
+        saveButton.setDefaultButton(true);
+        saveButton.setOnAction(e -> {
+            if (validateInput()) {
+                saved = true;
+                close();
+            }
+        });
+
+        Button cancelButton = new Button("Abbrechen");
+        cancelButton.setCancelButton(true);
+        cancelButton.setOnAction(e -> close());
+
+        HBox buttons = new HBox(10, saveButton, cancelButton);
+
+        root.getChildren().addAll(
+                new Label("Beschreibung:"), descriptionField,
+                buttons
+        );
+
+        setScene(new Scene(root, 300, 150));
+    }
+
+    private boolean validateInput() {
+        if (descriptionField.getText().trim().isEmpty()) {
+            showAlert("Beschreibung darf nicht leer sein.");
+            return false;
+        }
+        return true;
+    }
+
+    private void showAlert(String msg) {
+        Alert alert = new Alert(Alert.AlertType.WARNING, msg, ButtonType.OK);
+        alert.initOwner(this);
+        alert.showAndWait();
+    }
+
+    public boolean isSaved() {
+        return saved;
+    }
+
+    public Difficulty getResult() {
+        if (!saved) return null;
+
+        if (difficulty == null) {
+            difficulty = new Difficulty(0, descriptionField.getText().trim());
+        } else {
+            difficulty.setDescription(descriptionField.getText().trim());
+        }
+        return difficulty;
+    }
+}

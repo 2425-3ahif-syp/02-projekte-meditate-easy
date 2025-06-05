@@ -110,3 +110,51 @@
 .scroll-bar:vertical .thumb:hover {
     -fx-background-color: #764ba2;
 }
+
+.button-add {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0.5, 0, 2);
+    -fx-transition: background-color 0.3s ease;
+}
+
+.button-add:hover {
+    -fx-background-color: #45a049;
+}
+
+.button-edit {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0.5, 0, 2);
+    -fx-transition: background-color 0.3s ease;
+}
+
+.button-edit:hover {
+    -fx-background-color: #0b7dda;
+}
+
+.button-delete {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0.5, 0, 2);
+    -fx-transition: background-color 0.3s ease;
+}
+
+.button-delete:hover {
+    -fx-background-color: #da190b;
+}

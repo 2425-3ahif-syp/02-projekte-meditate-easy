@@ -2,11 +2,9 @@ package med.easy.meditateeasy.view.AdminDashboard;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.DifficultyRepository;
@@ -15,6 +13,10 @@ import med.easy.meditateeasy.database.VideoRepository;
 import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.model.Video;
+import med.easy.meditateeasy.view.AdminDashboard.Dialogs.DifficultyDialog;
+import med.easy.meditateeasy.view.AdminDashboard.Dialogs.InstructionDialog;
+import med.easy.meditateeasy.view.AdminDashboard.Dialogs.VideoDialog;
+
 import java.util.Objects;
 
 
@@ -55,10 +57,71 @@ public class AdminDashboardPresenter {
         table.getColumns().addAll(idCol, descCol);
 
         table.getItems().addAll(difficultyRepo.getAllDifficulties());
+        Button addButton = new Button("Neu");
+        Button editButton = new Button("Bearbeiten");
+        Button deleteButton = new Button("Löschen");
 
-        VBox container = new VBox(table);
+        addButton.getStyleClass().add("button-add");
+        editButton.getStyleClass().add("button-edit");
+        deleteButton.getStyleClass().add("button-delete");
+
+
+        HBox buttonBox = new HBox(10, addButton, editButton, deleteButton);
+        buttonBox.setPadding(new Insets(10));
+
+        VBox container = new VBox(buttonBox, table);
         container.setPadding(new Insets(10));
         view.difficultiesTab.setContent(container);
+        addButton.setOnAction(e -> {
+            DifficultyDialog dialog = new DifficultyDialog(null);
+            dialog.showAndWait();
+            if (dialog.isSaved()) {
+                Difficulty newDifficulty = dialog.getResult();
+                if (difficultyRepo.addDifficulty(newDifficulty)) {
+                    reloadDifficulties(table);
+                }
+            }
+        });
+
+        editButton.setOnAction(e -> {
+            Difficulty selected = table.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte eine Schwierigkeit auswählen.", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+            DifficultyDialog dialog = new DifficultyDialog(selected);
+            dialog.showAndWait();
+            if (dialog.isSaved()) {
+                Difficulty updatedDifficulty = dialog.getResult();
+                if (difficultyRepo.updateDifficulty(updatedDifficulty)) {
+                    reloadDifficulties(table);
+                }
+            }
+        });
+
+        deleteButton.setOnAction(e -> {
+            Difficulty selected = table.getSelectionModel().getSelectedItem();
+            if (selected != null) {
+                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Möchtest du die Schwierigkeit '" + selected.getDescription() + "' wirklich löschen?",
+                        ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.YES) {
+                        boolean success = difficultyRepo.deleteDifficulty(selected.getDifficultyId());
+                        if (success) {
+                            table.getItems().remove(selected);
+                        } else {
+                            Alert error = new Alert(Alert.AlertType.ERROR, "Löschen fehlgeschlagen.");
+                            error.showAndWait();
+                        }
+                    }
+                });
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte zuerst eine Schwierigkeit auswählen.");
+                alert.showAndWait();
+            }
+        });
     }
 
     private void setupInstructionTab() {
@@ -81,9 +144,72 @@ public class AdminDashboardPresenter {
         table.getColumns().addAll(idCol, titleCol, descCol, difficultyCol);
         table.getItems().addAll(instructionRepo.getAllInstructions());
 
-        VBox container = new VBox(table);
+        Button addButton = new Button("Neu");
+        Button editButton = new Button("Bearbeiten");
+        Button deleteButton = new Button("Löschen");
+
+        addButton.getStyleClass().add("button-add");
+        editButton.getStyleClass().add("button-edit");
+        deleteButton.getStyleClass().add("button-delete");
+
+        HBox buttonBox = new HBox(10, addButton, editButton, deleteButton);
+        buttonBox.setPadding(new Insets(10));
+
+        VBox container = new VBox(buttonBox, table);
         container.setPadding(new Insets(10));
         view.instructionsTab.setContent(container);
+
+        addButton.setOnAction(e -> {
+            InstructionDialog dialog = new InstructionDialog(null, difficultyRepo.getAllDifficulties());
+            dialog.showAndWait();
+            if (dialog.isSaved()) {
+                Instruction newInstruction = dialog.getResult();
+                if (instructionRepo.addInstruction(newInstruction)) {
+                    reloadInstructions(table);
+                } else {
+
+                }
+            }
+        });
+
+        editButton.setOnAction(e -> {
+            Instruction selected = table.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte eine Instruction auswählen.", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+            InstructionDialog dialog = new InstructionDialog(selected, difficultyRepo.getAllDifficulties());
+            dialog.showAndWait();
+            if (dialog.isSaved()) {
+                Instruction updatedInstruction = dialog.getResult();
+                if (instructionRepo.updateInstruction(updatedInstruction)) {
+                    reloadInstructions(table);
+                }
+            }
+        });
+        deleteButton.setOnAction(e -> {
+            Instruction selected = table.getSelectionModel().getSelectedItem();
+            if (selected != null) {
+                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Möchtest du die Instruction '" + selected.getTitle() + "' wirklich löschen?",
+                        ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.YES) {
+                        boolean success = instructionRepo.deleteInstruction(selected.getInstructionId());
+                        if (success) {
+                            table.getItems().remove(selected);
+                        } else {
+                            Alert error = new Alert(Alert.AlertType.ERROR, "Löschen fehlgeschlagen.");
+                            error.showAndWait();
+                        }
+                    }
+                });
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte zuerst eine Instruction auswählen.");
+                alert.showAndWait();
+            }
+        });
     }
 
     private void setupVideoTab() {
@@ -106,9 +232,70 @@ public class AdminDashboardPresenter {
         table.getColumns().addAll(idCol, titleCol, linkCol, difficultyCol);
         table.getItems().addAll(videoRepo.getAllVideos());
 
-        VBox container = new VBox(table);
+        Button addButton = new Button("Neu");
+        Button editButton = new Button("Bearbeiten");
+        Button deleteButton = new Button("Löschen");
+
+        addButton.getStyleClass().add("button-add");
+        editButton.getStyleClass().add("button-edit");
+        deleteButton.getStyleClass().add("button-delete");
+
+        HBox buttonBox = new HBox(10, addButton, editButton, deleteButton);
+        buttonBox.setPadding(new Insets(10));
+
+        VBox container = new VBox(buttonBox, table);
         container.setPadding(new Insets(10));
         view.videosTab.setContent(container);
+        addButton.setOnAction(e -> {
+            VideoDialog dialog = new VideoDialog(null, difficultyRepo.getAllDifficulties());
+            dialog.showAndWait();
+            if (dialog.isSaved()) {
+                Video newVideo = dialog.getResult();
+                if (videoRepo.addVideo(newVideo)) {
+                    reloadVideos(table);
+                }
+            }
+        });
+
+        editButton.setOnAction(e -> {
+            Video selected = table.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte ein Video auswählen.", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+            VideoDialog dialog = new VideoDialog(selected, difficultyRepo.getAllDifficulties());
+            dialog.showAndWait();
+            if (dialog.isSaved()) {
+                Video updatedVideo = dialog.getResult();
+                if (videoRepo.updateVideo(updatedVideo)) {
+                    reloadVideos(table);
+                }
+            }
+        });
+
+        deleteButton.setOnAction(e -> {
+            Video selected = table.getSelectionModel().getSelectedItem();
+            if (selected != null) {
+                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Möchtest du das Video '" + selected.getTitle() + "' wirklich löschen?",
+                        ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.YES) {
+                        boolean success = videoRepo.deleteVideo(selected.getVideoId());
+                        if (success) {
+                            table.getItems().remove(selected);
+                        } else {
+                            Alert error = new Alert(Alert.AlertType.ERROR, "Löschen fehlgeschlagen.");
+                            error.showAndWait();
+                        }
+                    }
+                });
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte zuerst ein Video auswählen.");
+                alert.showAndWait();
+            }
+        });
     }
 
     public AdminDashboardView getView() {
@@ -143,4 +330,17 @@ public class AdminDashboardPresenter {
             return cell;
         });
     }
+    private void reloadInstructions(TableView<Instruction> table) {
+        table.getItems().clear();
+        table.getItems().addAll(instructionRepo.getAllInstructions());
+    }
+    private void reloadDifficulties(TableView<Difficulty> table) {
+        table.getItems().clear();
+        table.getItems().addAll(difficultyRepo.getAllDifficulties());
+    }
+    private void reloadVideos(TableView<Video> table) {
+        table.getItems().clear();
+        table.getItems().addAll(videoRepo.getAllVideos());
+    }
+
 }

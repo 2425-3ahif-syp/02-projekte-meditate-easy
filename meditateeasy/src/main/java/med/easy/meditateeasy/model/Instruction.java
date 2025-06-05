@@ -14,6 +14,10 @@ public class Instruction {
 
     private DifficultyRepository difficultyRepository;
 
+    public Instruction() {
+        difficultyRepository = new DifficultyRepository();
+    }
+
     public Instruction(int instructionId, String title, String description, int difficultyId) {
         setInstructionId(instructionId);
         setTitle(title);

@@ -47,7 +47,7 @@
 }
 
 .list-cell:filled:hover {
-    -fx-background-color: #a5d6a7; /* helleres Grün beim Hover */
+    -fx-background-color: #a5d6a7;
 }
 
 .list-cell:filled{

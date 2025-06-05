@@ -35,4 +35,46 @@ public class VideoRepository {
 
         return videoList;
     }
+
+    public boolean addVideo(Video video) {
+        String sql = "INSERT INTO video (title, link, difficultyId) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, video.getTitle());
+            stmt.setString(2, video.getLink());
+            stmt.setInt(3, video.getDifficultyId());
+            int affected = stmt.executeUpdate();
+            return affected == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateVideo(Video video) {
+        String sql = "UPDATE video SET title = ?, link = ?, difficultyId = ? WHERE videoId = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, video.getTitle());
+            stmt.setString(2, video.getLink());
+            stmt.setInt(3, video.getDifficultyId());
+            stmt.setInt(4, video.getVideoId());
+            int affected = stmt.executeUpdate();
+            return affected == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteVideo(int videoId) {
+        String sql = "DELETE FROM video WHERE videoId = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, videoId);
+            int affected = stmt.executeUpdate();
+            return affected == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

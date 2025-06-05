@@ -57,4 +57,45 @@ public class InstructionRepository {
 
         return null;
     }
+
+    public boolean addInstruction(Instruction instruction) {
+        String sql = "INSERT INTO instruction (title, description, difficultyId) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, instruction.getTitle());
+            stmt.setString(2, instruction.getDescription());
+            stmt.setInt(3, instruction.getDifficultyId());
+            int affected = stmt.executeUpdate();
+            return affected == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateInstruction(Instruction instruction) {
+        String sql = "UPDATE instruction SET title = ?, description = ?, difficultyId = ? WHERE instructionId = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, instruction.getTitle());
+            stmt.setString(2, instruction.getDescription());
+            stmt.setInt(3, instruction.getDifficultyId());
+            stmt.setInt(4, instruction.getInstructionId());
+            int affected = stmt.executeUpdate();
+            return affected == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean deleteInstruction(int instructionId) {
+        String sql = "DELETE FROM instruction WHERE instructionId = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, instructionId);
+            int affected = stmt.executeUpdate();
+            return affected == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
