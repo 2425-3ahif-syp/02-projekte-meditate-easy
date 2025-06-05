@@ -4,6 +4,7 @@ import javafx.stage.Stage;
 import med.easy.meditateeasy.database.AdminRepository;
 import javafx.scene.Scene;
 import med.easy.meditateeasy.view.AdminDashboard.AdminDashboardPresenter;
+import med.easy.meditateeasy.view.StartPresenter;
 
 import java.util.Objects;
 
@@ -15,9 +16,15 @@ public class LoginPresenter {
     public LoginPresenter(LoginView view) {
         this.view = view;
         this.adminRepository = new AdminRepository();
+        attachEvents();
+    }
 
+    private void attachEvents() {
         view.getLoginButton().setOnAction(e -> {
             handleLogin();
+        });
+        view.getBackButton().setOnAction(e -> {
+            StartPresenter.show(view.getStage());
         });
     }
 

@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
@@ -17,6 +18,7 @@ public class LoginView {
     private final TextField usernameField = new TextField();
     private final PasswordField passwordField = new PasswordField();
     private final Button loginButton = new Button("Login");
+    private final Button backButton = new Button("← Zurück");
     private final Label messageLabel = new Label();
     private final Label titleLabel = new Label("Anmeldung");
 
@@ -25,8 +27,11 @@ public class LoginView {
         root.setPrefHeight(1000);
         root.setSpacing(20);
         root.setPadding(new Insets(30));
-        root.setAlignment(Pos.CENTER);
+        root.setAlignment(Pos.TOP_CENTER);
         root.getStyleClass().add("login-root");
+
+        backButton.getStyleClass().add("back-button");
+        backButton.setMinWidth(80);
 
         titleLabel.getStyleClass().add("login-title");
 
@@ -42,12 +47,20 @@ public class LoginView {
         messageLabel.getStyleClass().add("login-message");
         messageLabel.setMinHeight(20);
 
+        BorderPane topBar = new BorderPane();
+        topBar.setPadding(new Insets(0, 0, 200, 0));
+        topBar.setLeft(backButton);
+
+        VBox titleBox = new VBox(titleLabel);
+        titleBox.setAlignment(Pos.CENTER);
+        titleBox.setPadding(new Insets(0, 0, 30, 0));
+        VBox loginBox = new VBox(10, usernameField, passwordField, loginButton, messageLabel);
+        loginBox.setAlignment(Pos.CENTER);
+
         root.getChildren().addAll(
-                titleLabel,
-                usernameField,
-                passwordField,
-                loginButton,
-                messageLabel
+                topBar,
+                titleBox,
+                loginBox
         );
     }
 
@@ -76,5 +89,7 @@ public class LoginView {
         return (Stage) root.getScene().getWindow();
     }
 
-
+    public Button getBackButton() {
+        return backButton;
+    }
 }
