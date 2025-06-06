@@ -1,6 +1,8 @@
 package med.easy.meditateeasy.view.Video;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -12,7 +14,9 @@ import med.easy.meditateeasy.util.NavBarView;
 public class VideoView {
     private final VBox root = new VBox();
     private final NavBarView navBar = new NavBarView();
-
+    private final TextField searchField = new TextField();
+    private final ChoiceBox<String> difficultyFilter = new ChoiceBox<>();
+    private final HBox controls = new HBox();
 
 
     // Video list
@@ -26,6 +30,13 @@ public class VideoView {
         root.setPrefWidth(MeditateEasyApp.getX());
         root.setPrefHeight(MeditateEasyApp.getY());
 
+        searchField.setPromptText("Suche...");
+
+
+        controls.getChildren().addAll(searchField, difficultyFilter);
+        controls.setSpacing(20);
+        controls.setPadding(new Insets(20, 20, 10, 20));
+        HBox.setHgrow(searchField, Priority.ALWAYS);
 
         videoListView.setCellFactory(new Callback<>() {
             @Override
@@ -47,7 +58,7 @@ public class VideoView {
 
         VBox.setVgrow(videoListView, Priority.ALWAYS);
 
-        root.getChildren().addAll(navBar, videoListView);
+        root.getChildren().addAll(navBar, controls, videoListView);
     }
 
     public VBox getRoot() {
@@ -64,5 +75,17 @@ public class VideoView {
 
     public NavBarView getNavBar() {
         return navBar;
+    }
+
+    public TextField getSearchField() {
+        return searchField;
+    }
+
+    public ChoiceBox<String> getDifficultyFilter() {
+        return difficultyFilter;
+    }
+
+    public HBox getControls() {
+        return controls;
     }
 }

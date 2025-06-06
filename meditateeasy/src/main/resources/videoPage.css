@@ -92,3 +92,21 @@
     -fx-background-insets: 2;
     -fx-background-radius: 8px;
 }
+
+.text-field, .choice-box {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 14px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #4e95d9;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0.1, 0, 1);
+    -fx-focus-color: #83cbeb;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #264653;
+}
+
+.text-field:focused, .choice-box:focused {
+    -fx-border-color: #83cbeb;
+    -fx-effect: dropshadow(gaussian, rgba(131,203,235,0.2), 6, 0.2, 0, 2);
+}

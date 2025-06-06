@@ -1,8 +1,11 @@
 package med.easy.meditateeasy.view.Video;
 
+import javafx.collections.transformation.FilteredList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import med.easy.meditateeasy.database.DifficultyRepository;
 import med.easy.meditateeasy.database.VideoRepository;
+import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Video;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,11 +20,14 @@ public class VideoPresenter {
     private final VideoView view;
     private final VideoRepository videoRepository;
     private final ObservableList<Video> videoList = FXCollections.observableArrayList();
+    private final DifficultyRepository difficultyRepository = new DifficultyRepository();
+    private final FilteredList<Video> filteredVideos;
 
     private VideoPresenter(VideoView view) {
         this.view = view;
         this.videoRepository = new VideoRepository();
-
+        this.filteredVideos = new FilteredList<>(videoList);
+        loadDifficulties();
         attachEvents();
         loadVideos();
         bindVideoList();
@@ -58,7 +64,21 @@ public class VideoPresenter {
     }
 
     private void bindVideoList() {
-        view.getVideoListView().setItems(videoList);
+        view.getVideoListView().setItems(filteredVideos);
+
+        view.getSearchField().textProperty().addListener((obs, old, newVal) -> updateFilter());
+        view.getDifficultyFilter().getSelectionModel().selectedItemProperty()
+                .addListener((obs, old, newVal) -> updateFilter());
+    }
+
+    private void updateFilter() {
+        String searchText = view.getSearchField().getText().toLowerCase();
+        String difficulty = view.getDifficultyFilter().getValue();
+
+        filteredVideos.setPredicate(video ->
+                video.getTitle().toLowerCase().contains(searchText) &&
+                        (difficulty.equals("Alle") || video.getDifficulty().toString().equalsIgnoreCase(difficulty))
+        );
     }
 
     public static void show(Stage stage) {
@@ -76,4 +96,16 @@ public class VideoPresenter {
 
         stage.show();
     }
+
+    private void loadDifficulties() {
+        view.getDifficultyFilter().getItems().clear();
+        view.getDifficultyFilter().getItems().add("Alle");
+
+        for (Difficulty diff : difficultyRepository.getAllDifficulties()) {
+            view.getDifficultyFilter().getItems().add(diff.getDescription());
+        }
+
+        view.getDifficultyFilter().setValue("Alle");
+    }
+
 }

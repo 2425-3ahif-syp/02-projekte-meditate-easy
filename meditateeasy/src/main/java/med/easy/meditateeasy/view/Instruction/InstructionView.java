@@ -1,5 +1,6 @@
 package med.easy.meditateeasy.view.Instruction;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -28,10 +29,10 @@ public class InstructionView {
 
 
         searchField.setPromptText("Suche...");
-        difficultyFilter.getItems().addAll("Alle", "Anfänger", "Fortgeschritten", "Profi");
-        difficultyFilter.setValue("Alle");
         controls.getChildren().addAll(searchField, difficultyFilter);
         controls.setSpacing(20);
+        controls.setPadding(new Insets(20, 20, 10, 20));
+
         HBox.setHgrow(searchField, Priority.ALWAYS);
 
         listView.setCellFactory(new Callback<>() {

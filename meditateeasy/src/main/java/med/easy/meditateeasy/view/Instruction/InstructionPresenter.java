@@ -5,7 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import med.easy.meditateeasy.database.DifficultyRepository;
 import med.easy.meditateeasy.database.InstructionRepository;
+import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.view.Login.LoginPresenter;
 import med.easy.meditateeasy.view.StartPresenter;
@@ -19,11 +21,13 @@ public class InstructionPresenter {
     private final InstructionRepository instructionRepository;
     private final ObservableList<Instruction> instructionList = FXCollections.observableArrayList();
     private final FilteredList<Instruction> filteredInstructions;
+    private final DifficultyRepository difficultyRepository = new DifficultyRepository();
 
     public InstructionPresenter(InstructionView view) {
         this.view = view;
         this.instructionRepository = new InstructionRepository();
         this.filteredInstructions = new FilteredList<>(instructionList);
+        loadDifficulties();
         attachEvents();
         init();
         bindViewToModel();
@@ -72,6 +76,18 @@ public class InstructionPresenter {
             LoginPresenter.show(view.getStage());
         });
     }
+
+    private void loadDifficulties() {
+        view.getDifficultyFilter().getItems().clear();
+        view.getDifficultyFilter().getItems().add("Alle");
+
+        for (Difficulty diff : difficultyRepository.getAllDifficulties()) {
+            view.getDifficultyFilter().getItems().add(diff.getDescription());
+        }
+
+        view.getDifficultyFilter().setValue("Alle");
+    }
+
 
     public static void show(Stage stage) {
         InstructionView view = new InstructionView();
