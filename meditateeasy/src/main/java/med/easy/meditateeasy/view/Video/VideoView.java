@@ -6,6 +6,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import med.easy.meditateeasy.MeditateEasyApp;
 import med.easy.meditateeasy.model.Video;
 import med.easy.meditateeasy.view.NavBarView;
 
@@ -23,8 +24,8 @@ public class VideoView {
     }
 
     private void init() {
-        root.setPrefWidth(1600);
-        root.setPrefHeight(1000);
+        root.setPrefWidth(MeditateEasyApp.getX());
+        root.setPrefHeight(MeditateEasyApp.getY());
 
 
         videoListView.setCellFactory(new Callback<>() {

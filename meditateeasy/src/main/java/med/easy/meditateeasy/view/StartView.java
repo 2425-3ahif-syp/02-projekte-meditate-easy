@@ -10,6 +10,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import med.easy.meditateeasy.MeditateEasyApp;
 
 import java.util.Objects;
 
@@ -29,8 +30,8 @@ public class StartView {
 
     private void init() {
         // Root
-        root.setPrefWidth(1600);
-        root.setPrefHeight(1000);
+        root.setPrefWidth(MeditateEasyApp.getX());
+        root.setPrefHeight(MeditateEasyApp.getY());
 
 
 

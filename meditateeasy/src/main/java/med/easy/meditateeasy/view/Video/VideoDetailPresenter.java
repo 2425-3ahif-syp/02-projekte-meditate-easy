@@ -4,6 +4,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.model.Video;
 
+import java.util.Objects;
+
 public class VideoDetailPresenter {
     private final VideoDetailView view;
     private final Stage stage;
@@ -20,8 +22,8 @@ public class VideoDetailPresenter {
     private void setupView() {
         view.setVideo(video);
         Scene scene = new Scene(view.getRoot());
-        String cssPath = getClass().getResource("/detailPage.css").toExternalForm();
-        scene.getStylesheets().add(cssPath);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/detailPage.css")).toExternalForm());
+        stage.setTitle(String.format("Anleitungsvideo | %s", video.getTitle()));
 
         stage.setMaximized(true);
         stage.setScene(scene);

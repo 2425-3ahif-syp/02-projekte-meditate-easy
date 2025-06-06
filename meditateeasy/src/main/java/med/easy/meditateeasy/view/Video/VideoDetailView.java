@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
+import med.easy.meditateeasy.MeditateEasyApp;
 import med.easy.meditateeasy.model.Video;
 
 public class VideoDetailView {
@@ -18,8 +19,8 @@ public class VideoDetailView {
     public VideoDetailView() {
         header.getChildren().add(backButton);
         header.getStyleClass().add("detail-header");
-        root.setPrefWidth(1600);
-        root.setPrefHeight(1000);
+        root.setPrefWidth(MeditateEasyApp.getX());
+        root.setPrefHeight(MeditateEasyApp.getY());
         root.setSpacing(20);
         root.getStyleClass().add("detail-container");
         titleLabel.getStyleClass().add("detail-title");

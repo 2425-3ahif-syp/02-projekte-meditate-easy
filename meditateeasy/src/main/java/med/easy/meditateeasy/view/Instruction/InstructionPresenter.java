@@ -80,6 +80,7 @@ public class InstructionPresenter {
         Scene scene = new Scene(view.getRoot());
         scene.getStylesheets().add(Objects.requireNonNull(
                 InstructionPresenter.class.getResource("/instructionPage.css")).toExternalForm());
+        stage.setTitle("Meditate Easy - Anleitungen");
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

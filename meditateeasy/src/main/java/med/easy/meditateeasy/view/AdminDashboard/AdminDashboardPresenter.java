@@ -335,6 +335,7 @@ public class AdminDashboardPresenter {
         Scene scene = new Scene(view.getRoot());
         scene.getStylesheets().add(Objects.requireNonNull(
                 AdminDashboardPresenter.class.getResource("/data-tables.css")).toExternalForm());
+        stage.setTitle("Admin Dashboard");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();

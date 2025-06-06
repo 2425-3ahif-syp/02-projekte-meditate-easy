@@ -9,6 +9,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import med.easy.meditateeasy.MeditateEasyApp;
 
 public class AdminDashboardView {
     private final VBox root = new VBox();
@@ -26,8 +27,8 @@ public class AdminDashboardView {
     }
 
     private void init() {
-        root.setPrefWidth(1600);
-        root.setPrefHeight(1000);
+        root.setPrefWidth(MeditateEasyApp.getX());
+        root.setPrefHeight(MeditateEasyApp.getY());
         root.setAlignment(Pos.TOP_CENTER);
         root.setSpacing(20);
 

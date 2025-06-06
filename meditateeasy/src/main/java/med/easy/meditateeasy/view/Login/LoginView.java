@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import med.easy.meditateeasy.MeditateEasyApp;
 
 public class LoginView {
 
@@ -23,8 +24,8 @@ public class LoginView {
     private final Label titleLabel = new Label("Anmeldung");
 
     public LoginView() {
-        root.setPrefWidth(1600);
-        root.setPrefHeight(1000);
+        root.setPrefWidth(MeditateEasyApp.getX());
+        root.setPrefHeight(MeditateEasyApp.getY());
         root.setSpacing(20);
         root.setPadding(new Insets(30));
         root.setAlignment(Pos.TOP_CENTER);

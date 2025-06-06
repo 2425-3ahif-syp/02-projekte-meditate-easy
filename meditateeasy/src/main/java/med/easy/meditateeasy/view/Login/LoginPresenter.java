@@ -50,6 +50,7 @@ public class LoginPresenter {
         Scene scene = new Scene(view.getRoot());
         scene.getStylesheets().add(Objects.requireNonNull(
                 LoginPresenter.class.getResource("/login.css")).toExternalForm());
+        stage.setTitle("Meditate Easy - Login");
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

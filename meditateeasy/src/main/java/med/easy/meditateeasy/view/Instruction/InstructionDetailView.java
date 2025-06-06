@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import med.easy.meditateeasy.MeditateEasyApp;
 import med.easy.meditateeasy.model.Instruction;
 
 public class InstructionDetailView {
@@ -15,8 +16,8 @@ public class InstructionDetailView {
     private final Label descriptionLabel = new Label();
 
     public InstructionDetailView() {
-        root.setPrefWidth(1600);
-        root.setPrefHeight(1000);
+        root.setPrefWidth(MeditateEasyApp.getX());
+        root.setPrefHeight(MeditateEasyApp.getY());
 
         header.getChildren().add(backButton);
         header.getStyleClass().add("detail-header");
