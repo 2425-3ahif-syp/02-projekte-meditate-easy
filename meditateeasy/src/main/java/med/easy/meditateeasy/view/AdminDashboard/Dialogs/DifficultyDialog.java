@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.model.Difficulty;
+import med.easy.meditateeasy.util.Toast;
 
 public class DifficultyDialog extends Stage {
 
@@ -51,21 +52,15 @@ public class DifficultyDialog extends Stage {
                 buttons
         );
 
-        setScene(new Scene(root, 300, 150));
+        setScene(new Scene(root, 300, 180));
     }
 
     private boolean validateInput() {
         if (descriptionField.getText().trim().isEmpty()) {
-            showAlert("Beschreibung darf nicht leer sein.");
+            Toast.show(this, "Beschreibung darf nicht leer sein.", Toast.ToastType.WARNING, 1000, true);
             return false;
         }
         return true;
-    }
-
-    private void showAlert(String msg) {
-        Alert alert = new Alert(Alert.AlertType.WARNING, msg, ButtonType.OK);
-        alert.initOwner(this);
-        alert.showAndWait();
     }
 
     public boolean isSaved() {

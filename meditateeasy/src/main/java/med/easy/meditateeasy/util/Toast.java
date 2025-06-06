@@ -20,6 +20,10 @@ public class Toast {
     }
 
     public static void show(Stage ownerStage, String message, ToastType type, int durationMillis) {
+        show(ownerStage, message, type, durationMillis, false);
+    }
+
+    public static void show(Stage ownerStage, String message, ToastType type, int durationMillis, boolean isDialog) {
         Popup popup = new Popup();
 
         Label iconLabel = new Label(getIconUnicode(type));
@@ -35,6 +39,7 @@ public class Toast {
 
         StackPane pane = new StackPane(content);
         pane.setOpacity(0);
+        pane.setMouseTransparent(true);
 
         pane.getStylesheets().add(Objects.requireNonNull(
                 StartPresenter.class.getResource("/toast.css")).toExternalForm());
@@ -42,12 +47,20 @@ public class Toast {
 
         popup.getContent().add(pane);
         popup.setAutoFix(true);
-        popup.setAutoHide(true);
+        popup.setAutoHide(false);
         popup.setHideOnEscape(true);
+        popup.setConsumeAutoHidingEvents(false);
 
-        popup.show(ownerStage,
-                ownerStage.getX() + ownerStage.getWidth() / 2 - 150,
-                ownerStage.getY() + ownerStage.getHeight() - 100);
+        if (isDialog) {
+            popup.show(ownerStage);
+            pane.layout();
+            popup.setX(ownerStage.getX() + (ownerStage.getWidth() - pane.getWidth()) / 2);
+            popup.setY(ownerStage.getY() + ownerStage.getHeight() - 80);
+        } else {
+            popup.show(ownerStage,
+                    ownerStage.getX() + ownerStage.getWidth() / 2 - 150,
+                    ownerStage.getY() + ownerStage.getHeight() - 100);
+        }
 
         FadeTransition fadeIn = new FadeTransition(Duration.millis(300), pane);
         fadeIn.setFromValue(0);

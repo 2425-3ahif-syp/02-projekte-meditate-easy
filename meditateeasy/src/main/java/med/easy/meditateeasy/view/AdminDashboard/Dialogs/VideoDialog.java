@@ -9,6 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Video;
+import med.easy.meditateeasy.util.Toast;
 
 import java.util.List;
 
@@ -73,24 +74,18 @@ public class VideoDialog extends Stage {
 
     private boolean validateInput() {
         if (titleField.getText().trim().isEmpty()) {
-            showAlert("Titel darf nicht leer sein.");
+            Toast.show(this, "Titel darf nicht leer sein.", Toast.ToastType.WARNING, 1000, true);
             return false;
         }
         if (!urlField.getText().matches("^https://www\\.youtube\\.com/embed/.+")) {
-            showAlert("Der Link muss im Format https://www.youtube.com/embed/{Text} sein.");
+            Toast.show(this, "Der Link muss im Format https://www.youtube.com/embed/{Text} sein.", Toast.ToastType.WARNING, 1000, true);
             return false;
         }
         if (difficultyComboBox.getSelectionModel().isEmpty()) {
-            showAlert("Bitte Schwierigkeitsgrad auswählen.");
+            Toast.show(this, "Bitte Schwierigkeitsgrad auswählen.", Toast.ToastType.WARNING, 1000, true);
             return false;
         }
         return true;
-    }
-
-    private void showAlert(String msg) {
-        Alert alert = new Alert(Alert.AlertType.WARNING, msg, ButtonType.OK);
-        alert.initOwner(this);
-        alert.showAndWait();
     }
 
     public boolean isSaved() {

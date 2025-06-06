@@ -13,6 +13,7 @@ import med.easy.meditateeasy.database.VideoRepository;
 import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.model.Video;
+import med.easy.meditateeasy.util.Toast;
 import med.easy.meditateeasy.view.AdminDashboard.Dialogs.DifficultyDialog;
 import med.easy.meditateeasy.view.AdminDashboard.Dialogs.InstructionDialog;
 import med.easy.meditateeasy.view.AdminDashboard.Dialogs.VideoDialog;
@@ -76,6 +77,7 @@ public class AdminDashboardPresenter {
                 Difficulty newDifficulty = dialog.getResult();
                 if (difficultyRepo.addDifficulty(newDifficulty)) {
                     reloadDifficulties(table);
+                    Toast.show(view.getStage(), "Difficulty erfolgreich hinzugefügt.", Toast.ToastType.SUCCESS, 1000);
                 }
             }
         });
@@ -83,8 +85,7 @@ public class AdminDashboardPresenter {
         editButton.setOnAction(e -> {
             Difficulty selected = table.getSelectionModel().getSelectedItem();
             if (selected == null) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte eine Schwierigkeit auswählen.", ButtonType.OK);
-                alert.showAndWait();
+                Toast.show(view.getStage(), "Bitte eine Schwierigkeit auswählen.", Toast.ToastType.WARNING, 1000);
                 return;
             }
             DifficultyDialog dialog = new DifficultyDialog(selected);
@@ -93,6 +94,7 @@ public class AdminDashboardPresenter {
                 Difficulty updatedDifficulty = dialog.getResult();
                 if (difficultyRepo.updateDifficulty(updatedDifficulty)) {
                     reloadDifficulties(table);
+                    Toast.show(view.getStage(), "Difficulty erfolgreich bearbeitet.", Toast.ToastType.SUCCESS, 1000);
                 }
             }
         });
@@ -107,16 +109,15 @@ public class AdminDashboardPresenter {
                     if (response == ButtonType.YES) {
                         boolean success = difficultyRepo.deleteDifficulty(selected.getDifficultyId());
                         if (success) {
+                            Toast.show(view.getStage(), "Difficulty erfolgreich gelöscht.", Toast.ToastType.SUCCESS, 1000);
                             table.getItems().remove(selected);
                         } else {
-                            Alert error = new Alert(Alert.AlertType.ERROR, "Löschen fehlgeschlagen.");
-                            error.showAndWait();
+                            Toast.show(view.getStage(), "Löschen fehlgeschlagen.", Toast.ToastType.ERROR, 1000);
                         }
                     }
                 });
             } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte zuerst eine Schwierigkeit auswählen.");
-                alert.showAndWait();
+                Toast.show(view.getStage(), "Bitte zuerst eine Schwierigkeit auswählen", Toast.ToastType.WARNING, 1000);
             }
         });
     }
@@ -163,8 +164,7 @@ public class AdminDashboardPresenter {
                 Instruction newInstruction = dialog.getResult();
                 if (instructionRepo.addInstruction(newInstruction)) {
                     reloadInstructions(table);
-                } else {
-
+                    Toast.show(view.getStage(), "Instruction erfolgreich hinzugefügt.", Toast.ToastType.SUCCESS, 1000);
                 }
             }
         });
@@ -172,8 +172,7 @@ public class AdminDashboardPresenter {
         editButton.setOnAction(e -> {
             Instruction selected = table.getSelectionModel().getSelectedItem();
             if (selected == null) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte eine Instruction auswählen.", ButtonType.OK);
-                alert.showAndWait();
+                Toast.show(view.getStage(), "Bitte eine Instruction auswählen.", Toast.ToastType.WARNING, 1000);
                 return;
             }
             InstructionDialog dialog = new InstructionDialog(selected, difficultyRepo.getAllDifficulties());
@@ -182,6 +181,7 @@ public class AdminDashboardPresenter {
                 Instruction updatedInstruction = dialog.getResult();
                 if (instructionRepo.updateInstruction(updatedInstruction)) {
                     reloadInstructions(table);
+                    Toast.show(view.getStage(), "Instruction erfolgreich bearbeitet.", Toast.ToastType.SUCCESS, 1000);
                 }
             }
         });
@@ -195,16 +195,15 @@ public class AdminDashboardPresenter {
                     if (response == ButtonType.YES) {
                         boolean success = instructionRepo.deleteInstruction(selected.getInstructionId());
                         if (success) {
+                            Toast.show(view.getStage(), "Instruction erfolgreich gelöscht.", Toast.ToastType.SUCCESS, 1000);
                             table.getItems().remove(selected);
                         } else {
-                            Alert error = new Alert(Alert.AlertType.ERROR, "Löschen fehlgeschlagen.");
-                            error.showAndWait();
+                            Toast.show(view.getStage(), "Löschen fehlgeschlagen.", Toast.ToastType.ERROR, 1000);
                         }
                     }
                 });
             } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte zuerst eine Instruction auswählen.");
-                alert.showAndWait();
+                Toast.show(view.getStage(), "Bitte zuerst eine Instruction auswählen.", Toast.ToastType.WARNING, 1000);
             }
         });
     }
@@ -250,6 +249,7 @@ public class AdminDashboardPresenter {
                 Video newVideo = dialog.getResult();
                 if (videoRepo.addVideo(newVideo)) {
                     reloadVideos(table);
+                    Toast.show(view.getStage(), "Video erfolgreich hinzugefügt.", Toast.ToastType.SUCCESS, 1000);
                 }
             }
         });
@@ -257,8 +257,7 @@ public class AdminDashboardPresenter {
         editButton.setOnAction(e -> {
             Video selected = table.getSelectionModel().getSelectedItem();
             if (selected == null) {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte ein Video auswählen.", ButtonType.OK);
-                alert.showAndWait();
+                Toast.show(view.getStage(), "Bitte ein Video auswählen.", Toast.ToastType.WARNING, 1000);
                 return;
             }
             VideoDialog dialog = new VideoDialog(selected, difficultyRepo.getAllDifficulties());
@@ -267,6 +266,7 @@ public class AdminDashboardPresenter {
                 Video updatedVideo = dialog.getResult();
                 if (videoRepo.updateVideo(updatedVideo)) {
                     reloadVideos(table);
+                    Toast.show(view.getStage(), "Video erfolgreich bearbeitet.", Toast.ToastType.SUCCESS, 1000);
                 }
             }
         });
@@ -281,16 +281,15 @@ public class AdminDashboardPresenter {
                     if (response == ButtonType.YES) {
                         boolean success = videoRepo.deleteVideo(selected.getVideoId());
                         if (success) {
+                            Toast.show(view.getStage(), "Video erfolgreich gelöscht.", Toast.ToastType.SUCCESS, 1000);
                             table.getItems().remove(selected);
                         } else {
-                            Alert error = new Alert(Alert.AlertType.ERROR, "Löschen fehlgeschlagen.");
-                            error.showAndWait();
+                            Toast.show(view.getStage(), "Löschen fehlgeschlagen.", Toast.ToastType.ERROR, 1000);
                         }
                     }
                 });
             } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Bitte zuerst ein Video auswählen.");
-                alert.showAndWait();
+                Toast.show(view.getStage(), "Bitte zuerst ein Video auswählen.", Toast.ToastType.WARNING, 1000);
             }
         });
     }

@@ -34,6 +34,7 @@ public class LoginPresenter {
         String password = view.getPassword();
 
         if (adminRepository.verifyUser(username, password)) {
+            Toast.show(view.getStage(), "Erfolgreich eingeloggt!", Toast.ToastType.SUCCESS, 1000);
             AdminDashboardPresenter.show(view.getStage());
         } else {
             Toast.show(view.getStage(), "Ungültiger Benutzername oder Passwort!", Toast.ToastType.ERROR, 1000);
