@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view;
+package med.easy.meditateeasy.util;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

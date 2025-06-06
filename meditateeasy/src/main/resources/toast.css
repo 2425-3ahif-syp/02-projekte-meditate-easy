@@ -1,0 +1,11 @@
+.toast-label {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 20;
+    -fx-font-size: 14px;
+}
+
+.toast-pane {
+    -fx-background-radius: 20;
+}

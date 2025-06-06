@@ -1,14 +1,13 @@
 package med.easy.meditateeasy.view.Video;
 
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import med.easy.meditateeasy.MeditateEasyApp;
 import med.easy.meditateeasy.model.Video;
-import med.easy.meditateeasy.view.NavBarView;
+import med.easy.meditateeasy.util.NavBarView;
 
 public class VideoView {
     private final VBox root = new VBox();

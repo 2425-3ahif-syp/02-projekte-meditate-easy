@@ -3,6 +3,7 @@ package med.easy.meditateeasy.view.Login;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.AdminRepository;
 import javafx.scene.Scene;
+import med.easy.meditateeasy.util.Toast;
 import med.easy.meditateeasy.view.AdminDashboard.AdminDashboardPresenter;
 import med.easy.meditateeasy.view.StartPresenter;
 
@@ -35,7 +36,7 @@ public class LoginPresenter {
         if (adminRepository.verifyUser(username, password)) {
             AdminDashboardPresenter.show(view.getStage());
         } else {
-            view.setMessage("Ungültiger Benutzername oder Passwort!", "red");
+            Toast.show(view.getStage(), "Ungültiger Benutzername oder Passwort!", 1000);
         }
     }
 

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import med.easy.meditateeasy.MeditateEasyApp;
 import med.easy.meditateeasy.model.Instruction;
-import med.easy.meditateeasy.view.NavBarView;
+import med.easy.meditateeasy.util.NavBarView;
 
 public class InstructionView {
     private final VBox root = new VBox();
