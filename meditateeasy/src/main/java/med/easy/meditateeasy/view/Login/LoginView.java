@@ -7,15 +7,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.Region;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.MeditateEasyApp;
 
 public class LoginView {
 
-    private final VBox root = new VBox();
+    private final BorderPane root = new BorderPane();  // BorderPane statt VBox
     private final TextField usernameField = new TextField();
     private final PasswordField passwordField = new PasswordField();
     private final Button loginButton = new Button("Login");
@@ -26,10 +25,11 @@ public class LoginView {
     public LoginView() {
         root.setPrefWidth(MeditateEasyApp.getX());
         root.setPrefHeight(MeditateEasyApp.getY());
-        root.setSpacing(20);
-        root.setPadding(new Insets(30));
-        root.setAlignment(Pos.TOP_CENTER);
         root.getStyleClass().add("login-root");
+
+        HBox topBar = new HBox(backButton);
+        topBar.setPadding(new Insets(10));
+        topBar.setAlignment(Pos.TOP_LEFT);
 
         backButton.getStyleClass().add("back-button");
         backButton.setMinWidth(80);
@@ -48,24 +48,14 @@ public class LoginView {
         messageLabel.getStyleClass().add("login-message");
         messageLabel.setMinHeight(20);
 
-        BorderPane topBar = new BorderPane();
-        topBar.setPadding(new Insets(0, 0, 200, 0));
-        topBar.setLeft(backButton);
+        VBox loginBox = new VBox(10, titleLabel, usernameField, passwordField, loginButton, messageLabel);
+        loginBox.setAlignment(Pos.TOP_CENTER);
 
-        VBox titleBox = new VBox(titleLabel);
-        titleBox.setAlignment(Pos.CENTER);
-        titleBox.setPadding(new Insets(0, 0, 30, 0));
-        VBox loginBox = new VBox(10, usernameField, passwordField, loginButton, messageLabel);
-        loginBox.setAlignment(Pos.CENTER);
-
-        root.getChildren().addAll(
-                topBar,
-                titleBox,
-                loginBox
-        );
+        root.setTop(topBar);
+        root.setCenter(loginBox);
     }
 
-    public VBox getRoot() {
+    public BorderPane getRoot() {
         return root;
     }
 
