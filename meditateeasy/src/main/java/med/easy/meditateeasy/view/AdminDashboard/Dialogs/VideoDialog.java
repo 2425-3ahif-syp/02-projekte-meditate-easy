@@ -12,6 +12,7 @@ import med.easy.meditateeasy.model.Video;
 import med.easy.meditateeasy.util.Toast;
 
 import java.util.List;
+import java.util.Objects;
 
 public class VideoDialog extends Stage {
 
@@ -30,9 +31,13 @@ public class VideoDialog extends Stage {
 
         VBox root = new VBox(10);
         root.setPadding(new Insets(15));
+        root.getStyleClass().add("root-dialog");
 
         titleField.setPromptText("Titel");
         urlField.setPromptText("URL");
+        titleField.getStyleClass().add("input-field");
+        urlField.getStyleClass().add("input-field");
+        difficultyComboBox.getStyleClass().add("combo-box");
 
         difficultyComboBox.getItems().addAll(difficulties);
 
@@ -49,6 +54,8 @@ public class VideoDialog extends Stage {
 
         Button saveButton = new Button("Speichern");
         saveButton.setDefaultButton(true);
+        saveButton.getStyleClass().add("button-save");
+
         saveButton.setOnAction(e -> {
             if (validateInput()) {
                 saved = true;
@@ -59,6 +66,8 @@ public class VideoDialog extends Stage {
         Button cancelButton = new Button("Abbrechen");
         cancelButton.setCancelButton(true);
         cancelButton.setOnAction(e -> close());
+        cancelButton.getStyleClass().add("button-cancel");
+
 
         HBox buttons = new HBox(10, saveButton, cancelButton);
 
@@ -68,8 +77,8 @@ public class VideoDialog extends Stage {
                 new Label("Schwierigkeitsgrad:"), difficultyComboBox,
                 buttons
         );
-
-        setScene(new Scene(root, 400, 300));
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/dialog.css")).toExternalForm());
+        setScene(new Scene(root, 600, 350));
     }
 
     private boolean validateInput() {

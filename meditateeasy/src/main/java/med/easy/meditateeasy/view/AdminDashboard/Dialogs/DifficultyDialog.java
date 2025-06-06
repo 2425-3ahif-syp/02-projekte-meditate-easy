@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.util.Toast;
 
+import java.util.Objects;
+
 public class DifficultyDialog extends Stage {
 
     private final TextField descriptionField = new TextField();
@@ -25,8 +27,10 @@ public class DifficultyDialog extends Stage {
 
         VBox root = new VBox(10);
         root.setPadding(new Insets(15));
+        root.getStyleClass().add("root-dialog");
 
         descriptionField.setPromptText("Beschreibung");
+        descriptionField.getStyleClass().add("input-field");
 
         if (difficulty != null) {
             descriptionField.setText(difficulty.getDescription());
@@ -34,6 +38,8 @@ public class DifficultyDialog extends Stage {
 
         Button saveButton = new Button("Speichern");
         saveButton.setDefaultButton(true);
+        saveButton.getStyleClass().add("button-save");
+
         saveButton.setOnAction(e -> {
             if (validateInput()) {
                 saved = true;
@@ -44,6 +50,7 @@ public class DifficultyDialog extends Stage {
         Button cancelButton = new Button("Abbrechen");
         cancelButton.setCancelButton(true);
         cancelButton.setOnAction(e -> close());
+        cancelButton.getStyleClass().add("button-cancel");
 
         HBox buttons = new HBox(10, saveButton, cancelButton);
 
@@ -52,7 +59,8 @@ public class DifficultyDialog extends Stage {
                 buttons
         );
 
-        setScene(new Scene(root, 300, 180));
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/dialog.css")).toExternalForm());
+        setScene(new Scene(root, 300, 185));
     }
 
     private boolean validateInput() {

@@ -12,6 +12,7 @@ import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.util.Toast;
 
 import java.util.List;
+import java.util.Objects;
 
 public class InstructionDialog extends Stage {
 
@@ -30,10 +31,15 @@ public class InstructionDialog extends Stage {
 
         VBox root = new VBox(10);
         root.setPadding(new Insets(15));
+        root.getStyleClass().add("root-dialog");
 
         titleField.setPromptText("Titel");
         descriptionArea.setPromptText("Beschreibung");
         descriptionArea.setWrapText(true);
+
+        titleField.getStyleClass().add("input-field");
+        descriptionArea.getStyleClass().add("text-area");
+        difficultyComboBox.getStyleClass().add("combo-box");
 
         difficultyComboBox.getItems().addAll(difficulties);
 
@@ -50,6 +56,8 @@ public class InstructionDialog extends Stage {
 
         Button saveButton = new Button("Speichern");
         saveButton.setDefaultButton(true);
+        saveButton.getStyleClass().add("button-save");
+
         saveButton.setOnAction(e -> {
             if (validateInput()) {
                 saved = true;
@@ -60,6 +68,7 @@ public class InstructionDialog extends Stage {
         Button cancelButton = new Button("Abbrechen");
         cancelButton.setCancelButton(true);
         cancelButton.setOnAction(e -> close());
+        cancelButton.getStyleClass().add("button-cancel");
 
         HBox buttons = new HBox(10, saveButton, cancelButton);
 
@@ -70,7 +79,8 @@ public class InstructionDialog extends Stage {
                 buttons
         );
 
-        setScene(new Scene(root, 400, 444));
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/dialog.css")).toExternalForm());
+        setScene(new Scene(root, 400, 525));
     }
 
     private boolean validateInput() {
