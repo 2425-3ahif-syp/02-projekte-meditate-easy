@@ -36,7 +36,7 @@ public class LoginPresenter {
         if (adminRepository.verifyUser(username, password)) {
             AdminDashboardPresenter.show(view.getStage());
         } else {
-            Toast.show(view.getStage(), "Ungültiger Benutzername oder Passwort!", 1000);
+            Toast.show(view.getStage(), "Ungültiger Benutzername oder Passwort!", Toast.ToastType.ERROR, 1000);
         }
     }
 

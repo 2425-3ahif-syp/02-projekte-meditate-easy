@@ -1,11 +1,32 @@
+.toast-box {
+    -fx-background-radius: 16;
+    -fx-padding: 10 16;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
 .toast-label {
-    -fx-background-color: rgba(0, 0, 0, 0.7);
     -fx-text-fill: white;
-    -fx-padding: 10px 20px;
-    -fx-background-radius: 20;
     -fx-font-size: 14px;
 }
 
-.toast-pane {
-    -fx-background-radius: 20;
+.toast-icon {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+/* Farbvarianten über Typen */
+.toast-success {
+    -fx-background-color: #4CAF50;
+}
+
+.toast-error {
+    -fx-background-color: #F44336;
+}
+
+.toast-info {
+    -fx-background-color: #2196F3;
+}
+
+.toast-warning {
+    -fx-background-color: #FF9800;
 }
