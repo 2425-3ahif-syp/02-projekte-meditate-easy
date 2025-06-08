@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.MeditateEasyApp;
@@ -49,6 +50,8 @@ public class AdminDashboardView {
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
         root.getChildren().addAll(topBar, tabPane);
+
+        VBox.setVgrow(tabPane, Priority.ALWAYS);
     }
 
     public VBox getRoot() {

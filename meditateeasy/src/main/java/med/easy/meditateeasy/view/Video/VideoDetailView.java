@@ -41,4 +41,8 @@ public class VideoDetailView {
     public Button getBackButton() {
         return backButton;
     }
+
+    public WebView getWebView() {
+        return webView;
+    }
 }

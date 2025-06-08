@@ -16,7 +16,7 @@ public class DifficultyRepository {
 
     public List<Difficulty> getAllDifficulties() {
         List<Difficulty> list = new ArrayList<>();
-        String sql = "SELECT * FROM DIFFICULTY";
+        String sql = "SELECT * FROM DIFFICULTY ORDER BY difficultyid";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {

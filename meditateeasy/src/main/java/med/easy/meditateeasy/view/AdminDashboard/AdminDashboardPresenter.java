@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.DifficultyRepository;
@@ -68,6 +69,7 @@ public class AdminDashboardPresenter {
         buttonBox.setPadding(new Insets(10));
 
         VBox container = new VBox(buttonBox, table);
+        VBox.setVgrow(table, Priority.ALWAYS);
         container.setPadding(new Insets(10));
         view.difficultiesTab.setContent(container);
         addButton.setOnAction(e -> {
@@ -109,6 +111,8 @@ public class AdminDashboardPresenter {
                     if (response == ButtonType.YES) {
                         boolean success = difficultyRepo.deleteDifficulty(selected.getDifficultyId());
                         if (success) {
+                            setupInstructionTab();
+                            setupVideoTab();
                             Toast.show(view.getStage(), "Difficulty erfolgreich gelöscht.", Toast.ToastType.SUCCESS, 1000);
                             table.getItems().remove(selected);
                         } else {
@@ -154,6 +158,8 @@ public class AdminDashboardPresenter {
         buttonBox.setPadding(new Insets(10));
 
         VBox container = new VBox(buttonBox, table);
+        VBox.setVgrow(table, Priority.ALWAYS);
+
         container.setPadding(new Insets(10));
         view.instructionsTab.setContent(container);
 
@@ -240,6 +246,8 @@ public class AdminDashboardPresenter {
         buttonBox.setPadding(new Insets(10));
 
         VBox container = new VBox(buttonBox, table);
+        VBox.setVgrow(table, Priority.ALWAYS);
+
         container.setPadding(new Insets(10));
         view.videosTab.setContent(container);
         addButton.setOnAction(e -> {

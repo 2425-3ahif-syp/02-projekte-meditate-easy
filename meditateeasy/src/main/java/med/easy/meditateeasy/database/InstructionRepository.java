@@ -16,7 +16,7 @@ public class InstructionRepository {
 
     public List<Instruction> getAllInstructions() {
         List<Instruction> instructionList = new ArrayList<>();
-        String sql = "SELECT * FROM instruction";
+        String sql = "SELECT * FROM instruction order by instructionid";
 
         try (Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(sql)

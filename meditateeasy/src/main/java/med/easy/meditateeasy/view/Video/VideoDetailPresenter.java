@@ -32,6 +32,7 @@ public class VideoDetailPresenter {
 
     private void attachEvents() {
         view.getBackButton().setOnAction(e -> {
+            view.getWebView().getEngine().load(null);
             VideoPresenter.show(stage);
         });
     }
