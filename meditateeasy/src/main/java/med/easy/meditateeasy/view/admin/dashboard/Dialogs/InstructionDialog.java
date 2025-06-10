@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.AdminDashboard.Dialogs;
+package med.easy.meditateeasy.view.admin.dashboard.Dialogs;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -8,25 +8,25 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.model.Difficulty;
-import med.easy.meditateeasy.model.Video;
+import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.util.Toast;
 
 import java.util.List;
 import java.util.Objects;
 
-public class VideoDialog extends Stage {
+public class InstructionDialog extends Stage {
 
     private final TextField titleField = new TextField();
-    private final TextField urlField = new TextField();
+    private final TextArea descriptionArea = new TextArea();
     private final ComboBox<Difficulty> difficultyComboBox = new ComboBox<>();
 
-    private Video video;
+    private Instruction instruction;
     private boolean saved = false;
 
-    public VideoDialog(Video video, List<Difficulty> difficulties) {
-        this.video = video;
+    public InstructionDialog(Instruction instruction, List<Difficulty> difficulties) {
+        this.instruction = instruction;
 
-        setTitle(video == null ? "Neues Video" : "Video bearbeiten");
+        setTitle(instruction == null ? "Neue Instruction" : "Instruction bearbeiten");
         initModality(Modality.APPLICATION_MODAL);
 
         VBox root = new VBox(10);
@@ -34,19 +34,21 @@ public class VideoDialog extends Stage {
         root.getStyleClass().add("root-dialog");
 
         titleField.setPromptText("Titel");
-        urlField.setPromptText("URL");
+        descriptionArea.setPromptText("Beschreibung");
+        descriptionArea.setWrapText(true);
+
         titleField.getStyleClass().add("input-field");
-        urlField.getStyleClass().add("input-field");
+        descriptionArea.getStyleClass().add("text-area");
         difficultyComboBox.getStyleClass().add("combo-box");
 
         difficultyComboBox.getItems().addAll(difficulties);
 
-        if (video != null) {
-            titleField.setText(video.getTitle());
-            urlField.setText(video.getLink());
+        if (instruction != null) {
+            titleField.setText(instruction.getTitle());
+            descriptionArea.setText(instruction.getDescription());
             difficultyComboBox.getSelectionModel().select(
                     difficulties.stream()
-                            .filter(d -> d.getDifficultyId() == video.getDifficultyId())
+                            .filter(d -> d.getDifficultyId() == instruction.getDifficultyId())
                             .findFirst()
                             .orElse(null)
             );
@@ -68,17 +70,17 @@ public class VideoDialog extends Stage {
         cancelButton.setOnAction(e -> close());
         cancelButton.getStyleClass().add("button-cancel");
 
-
         HBox buttons = new HBox(10, saveButton, cancelButton);
 
         root.getChildren().addAll(
                 new Label("Titel:"), titleField,
-                new Label("URL:"), urlField,
+                new Label("Beschreibung:"), descriptionArea,
                 new Label("Schwierigkeitsgrad:"), difficultyComboBox,
                 buttons
         );
+
         root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/dialog.css")).toExternalForm());
-        setScene(new Scene(root, 600, 350));
+        setScene(new Scene(root, 400, 525));
     }
 
     private boolean validateInput() {
@@ -86,12 +88,12 @@ public class VideoDialog extends Stage {
             Toast.show(this, "Titel darf nicht leer sein.", Toast.ToastType.WARNING, 1000, true);
             return false;
         }
-        if (!urlField.getText().matches("^https://www\\.youtube\\.com/embed/.+")) {
-            Toast.show(this, "Der Link muss im Format https://www.youtube.com/embed/{Text} sein.", Toast.ToastType.WARNING, 1000, true);
-            return false;
-        }
         if (difficultyComboBox.getSelectionModel().isEmpty()) {
             Toast.show(this, "Bitte Schwierigkeitsgrad auswählen.", Toast.ToastType.WARNING, 1000, true);
+            return false;
+        }
+        if(descriptionArea.getText().trim().isEmpty()) {
+            Toast.show(this, "Beschreibung darf nicht leer sein.", Toast.ToastType.WARNING, 1000, true);
             return false;
         }
         return true;
@@ -101,15 +103,15 @@ public class VideoDialog extends Stage {
         return saved;
     }
 
-    public Video getResult() {
+    public Instruction getResult() {
         if (!saved) return null;
-        if (video == null) {
-            video = new Video(0, titleField.getText().trim(), urlField.getText().trim(), 0);
+        if (instruction == null) {
+            instruction = new Instruction();
         }
-        video.setTitle(titleField.getText().trim());
-        video.setLink(urlField.getText().trim());
+        instruction.setTitle(titleField.getText().trim());
+        instruction.setDescription(descriptionArea.getText().trim());
         Difficulty selected = difficultyComboBox.getSelectionModel().getSelectedItem();
-        video.setDifficultyId(selected.getDifficultyId());
-        return video;
+        instruction.setDifficultyId(selected.getDifficultyId());
+        return instruction;
     }
 }

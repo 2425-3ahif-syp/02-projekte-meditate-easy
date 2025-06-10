@@ -1,10 +1,10 @@
-package med.easy.meditateeasy.view.Login;
+package med.easy.meditateeasy.view.login;
 
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.AdminRepository;
 import javafx.scene.Scene;
 import med.easy.meditateeasy.util.Toast;
-import med.easy.meditateeasy.view.AdminDashboard.AdminDashboardPresenter;
+import med.easy.meditateeasy.view.admin.dashboard.AdminDashboardPresenter;
 import med.easy.meditateeasy.view.StartPresenter;
 
 import java.util.Objects;

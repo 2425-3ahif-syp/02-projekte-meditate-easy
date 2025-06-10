@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.Instruction;
+package med.easy.meditateeasy.view.instruction;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;

@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.AdminDashboard;
+package med.easy.meditateeasy.view.admin.dashboard;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -15,9 +15,9 @@ import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.model.Video;
 import med.easy.meditateeasy.util.Toast;
-import med.easy.meditateeasy.view.AdminDashboard.Dialogs.DifficultyDialog;
-import med.easy.meditateeasy.view.AdminDashboard.Dialogs.InstructionDialog;
-import med.easy.meditateeasy.view.AdminDashboard.Dialogs.VideoDialog;
+import med.easy.meditateeasy.view.admin.dashboard.Dialogs.DifficultyDialog;
+import med.easy.meditateeasy.view.admin.dashboard.Dialogs.InstructionDialog;
+import med.easy.meditateeasy.view.admin.dashboard.Dialogs.VideoDialog;
 import med.easy.meditateeasy.view.StartPresenter;
 
 import java.util.Objects;

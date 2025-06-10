@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.Video;
+package med.easy.meditateeasy.view.video;
 
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.Scene;
@@ -9,8 +9,8 @@ import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Video;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import med.easy.meditateeasy.view.Instruction.InstructionPresenter;
-import med.easy.meditateeasy.view.Login.LoginPresenter;
+import med.easy.meditateeasy.view.instruction.InstructionPresenter;
+import med.easy.meditateeasy.view.login.LoginPresenter;
 import med.easy.meditateeasy.view.StartPresenter;
 
 import java.util.List;

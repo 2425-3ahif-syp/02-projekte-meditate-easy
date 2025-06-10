@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.Video;
+package med.easy.meditateeasy.view.video;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

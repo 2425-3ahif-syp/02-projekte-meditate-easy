@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.Instruction;
+package med.easy.meditateeasy.view.instruction;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,9 +9,9 @@ import med.easy.meditateeasy.database.DifficultyRepository;
 import med.easy.meditateeasy.database.InstructionRepository;
 import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
-import med.easy.meditateeasy.view.Login.LoginPresenter;
+import med.easy.meditateeasy.view.login.LoginPresenter;
 import med.easy.meditateeasy.view.StartPresenter;
-import med.easy.meditateeasy.view.Video.VideoPresenter;
+import med.easy.meditateeasy.view.video.VideoPresenter;
 
 import java.util.Objects;
 import java.util.function.Predicate;

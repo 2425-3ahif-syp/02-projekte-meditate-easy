@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.Instruction;
+package med.easy.meditateeasy.view.instruction;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;

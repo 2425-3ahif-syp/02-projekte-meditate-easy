@@ -127,7 +127,7 @@ public class Database {
         if (connection != null) {
             try {
                 connection.close();
-                System.out.println("Verbindung geschlossen");
+                System.out.println("App beendet");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

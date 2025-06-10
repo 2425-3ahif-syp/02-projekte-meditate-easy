@@ -2,9 +2,9 @@ package med.easy.meditateeasy.view;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import med.easy.meditateeasy.view.Instruction.InstructionPresenter;
-import med.easy.meditateeasy.view.Login.LoginPresenter;
-import med.easy.meditateeasy.view.Video.VideoPresenter;
+import med.easy.meditateeasy.view.instruction.InstructionPresenter;
+import med.easy.meditateeasy.view.login.LoginPresenter;
+import med.easy.meditateeasy.view.video.VideoPresenter;
 
 import java.util.Objects;
 

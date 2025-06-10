@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.AdminDashboard;
+package med.easy.meditateeasy.view.admin.dashboard;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
