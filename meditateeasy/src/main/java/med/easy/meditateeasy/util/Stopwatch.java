@@ -73,10 +73,24 @@ public class Stopwatch extends VBox {
     }
 
     private void toggleStartPause() {
-
+        if (running) {
+            timeline.pause();
+            startPauseButton.setText("Fortsetzen");
+            running = false;
+        } else {
+            timeline.play();
+            startPauseButton.setText("Pause");
+            running = true;
+        }
     }
 
     private void reset() {
-
+        timeline.stop();
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        updateTimeLabel();
+        startPauseButton.setText("Start");
+        running = false;
     }
 }
