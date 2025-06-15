@@ -10,7 +10,7 @@ public class NavBarView extends HBox {
     private final Button videoBtn = new Button("Anleitungsvideos");
     private final Button instructionBtn = new Button("Instruktionen");
     private final Button homeBtn = new Button("Home");
-    private final Button loginBtn = new Button("Login");
+    private final Button loginBtn = new Button("Admin Login");
     private final Region spacer = new Region();
 
     public NavBarView() {

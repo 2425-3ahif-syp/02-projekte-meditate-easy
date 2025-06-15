@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -53,8 +54,9 @@ public class InstructionView {
                 };
             }
         });
-
-        root.getChildren().addAll(navBar, controls, listView);
+        Region spacer = new Region();
+        spacer.setMinHeight(20);
+        root.getChildren().addAll(navBar, controls, listView, spacer);
         VBox.setVgrow(listView, Priority.ALWAYS);
     }
 
