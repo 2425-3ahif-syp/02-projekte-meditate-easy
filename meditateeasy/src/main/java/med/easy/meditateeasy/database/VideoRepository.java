@@ -15,7 +15,7 @@ public class VideoRepository {
 
     public List<Video> getAllVideos() {
         List<Video> videoList = new ArrayList<>();
-        String sql = "SELECT * FROM video order by videoid";
+        String sql = "SELECT videoid, title, link, difficultyid FROM video order by videoid";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {

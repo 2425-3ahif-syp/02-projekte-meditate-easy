@@ -16,7 +16,7 @@ public class DifficultyRepository {
 
     public List<Difficulty> getAllDifficulties() {
         List<Difficulty> list = new ArrayList<>();
-        String sql = "SELECT * FROM DIFFICULTY ORDER BY difficultyid";
+        String sql = "SELECT difficultyid, description FROM DIFFICULTY ORDER BY difficultyid";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -31,7 +31,7 @@ public class DifficultyRepository {
     }
 
     public Difficulty getDifficulty(int id) {
-        String sql = "SELECT * FROM DIFFICULTY WHERE difficultyId = ?";
+        String sql = "SELECT difficultyid, description FROM DIFFICULTY WHERE difficultyId = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);

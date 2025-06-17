@@ -18,7 +18,7 @@ public class AdminRepository {
     }
 
     public Admin findByUsername(String username) {
-        String sql = "SELECT * FROM ADMIN WHERE username = ?";
+        String sql = "SELECT id, username, password_hash FROM ADMIN WHERE username = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, username);
