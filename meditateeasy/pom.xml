@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.2</junit.version>
-        <postgresql.version>42.7.6</postgresql.version>
+        <postgresql.version>42.7.7</postgresql.version>
         <javafx.version>23</javafx.version>
     </properties>
 
