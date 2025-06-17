@@ -40,7 +40,8 @@ link:https://github.com/2425-3ahif-syp/02-projekte-meditate-easy/blob/main/ascii
 link:https://vm81.htl-leonding.ac.at/projects/f7d7e4af-841c-42af-99f2-fa93249c1c1b[YouTrack^]
 
 == Problemstellung
- Viele Menschen suchen eine einfache Möglichkeit zur
+
+Viele Menschen suchen eine einfache Möglichkeit zur
  Stressbewältigung durch Meditation. Bestehende Apps
  sind oft unübersichtlich, wenig anpassbar oder
  benötigen eine Internetverbindung.
@@ -82,14 +83,12 @@ actor Admin
 rectangle "Meditate Easy" {
     usecase "Meditationsübungen starten" as UC1
     usecase "Timer einstellen" as UC2
-    usecase "Fortschritt speichern" as UC3
     usecase "Videos ansehen" as UC4
     usecase "Videos verwalten" as UC5
 }
 
 Benutzer -- UC1
 UC1 ..|> UC2 : <<extend>>
-UC1 ..|> UC3 : <<extend>>
 Benutzer -- UC4
 Admin -- UC5
 
@@ -116,7 +115,15 @@ class Video {
     * link: string
 }
 
+class Admin {
+    * adminId: int
+    * username: string
+    * password: string
+}
+
 Video }o-|| Difficulty
 Difficulty ||-o{ Instruction
 @enduml
 ----
+
+== LIVE DEMO
