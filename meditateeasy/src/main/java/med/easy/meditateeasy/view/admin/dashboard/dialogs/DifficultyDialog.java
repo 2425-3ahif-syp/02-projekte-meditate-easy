@@ -1,4 +1,4 @@
-package med.easy.meditateeasy.view.admin.dashboard.Dialogs;
+package med.easy.meditateeasy.view.admin.dashboard.dialogs;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

@@ -16,9 +16,9 @@ import med.easy.meditateeasy.model.Difficulty;
 import med.easy.meditateeasy.model.Instruction;
 import med.easy.meditateeasy.model.Video;
 import med.easy.meditateeasy.util.Toast;
-import med.easy.meditateeasy.view.admin.dashboard.Dialogs.DifficultyDialog;
-import med.easy.meditateeasy.view.admin.dashboard.Dialogs.InstructionDialog;
-import med.easy.meditateeasy.view.admin.dashboard.Dialogs.VideoDialog;
+import med.easy.meditateeasy.view.admin.dashboard.dialogs.DifficultyDialog;
+import med.easy.meditateeasy.view.admin.dashboard.dialogs.InstructionDialog;
+import med.easy.meditateeasy.view.admin.dashboard.dialogs.VideoDialog;
 import med.easy.meditateeasy.view.StartPresenter;
 
 import java.util.Objects;
