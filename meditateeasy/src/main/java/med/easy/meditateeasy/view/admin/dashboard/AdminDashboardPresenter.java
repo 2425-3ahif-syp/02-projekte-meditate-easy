@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import med.easy.meditateeasy.database.DifficultyRepository;
@@ -71,7 +72,17 @@ public class AdminDashboardPresenter {
         VBox container = new VBox(buttonBox, table);
         VBox.setVgrow(table, Priority.ALWAYS);
         container.setPadding(new Insets(10));
-        view.difficultiesTab.setContent(container);
+
+        Region spacer = new Region();
+        spacer.setMinHeight(40);
+        container.getChildren().add(spacer);
+        ScrollPane scrollPane = new ScrollPane(container);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        view.difficultiesTab.setContent(scrollPane);
+
         addButton.setOnAction(e -> {
             DifficultyDialog dialog = new DifficultyDialog(null);
             dialog.showAndWait();
@@ -161,7 +172,16 @@ public class AdminDashboardPresenter {
         VBox.setVgrow(table, Priority.ALWAYS);
 
         container.setPadding(new Insets(10));
-        view.instructionsTab.setContent(container);
+
+        Region spacer = new Region();
+        spacer.setMinHeight(40);
+        container.getChildren().add(spacer);
+        ScrollPane scrollPane = new ScrollPane(container);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        view.instructionsTab.setContent(scrollPane);
 
         addButton.setOnAction(e -> {
             InstructionDialog dialog = new InstructionDialog(null, difficultyRepo.getAllDifficulties());
@@ -249,7 +269,16 @@ public class AdminDashboardPresenter {
         VBox.setVgrow(table, Priority.ALWAYS);
 
         container.setPadding(new Insets(10));
-        view.videosTab.setContent(container);
+
+        Region spacer = new Region();
+        spacer.setMinHeight(40);
+        container.getChildren().add(spacer);
+        ScrollPane scrollPane = new ScrollPane(container);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        view.videosTab.setContent(scrollPane);
         addButton.setOnAction(e -> {
             VideoDialog dialog = new VideoDialog(null, difficultyRepo.getAllDifficulties());
             dialog.showAndWait();
